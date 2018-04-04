@@ -3,7 +3,7 @@ import re
 
 
 def connect_db():
-    db = pymysql.connect(host='localhost',user='root',password='JMU-bec2017',db='PaperSystem')
+    db = pymysql.connect(host='localhost',user='###',password='###',db='###')
     return db
 
 def verify_user_exist(user):
