@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>数据表格页面</title>
+
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/plugins/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/plugins/jquery-ui-1.8.16.custom.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/plugins/jquery.cookie.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/plugins/jquery.uniform.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom/general.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/plugins/jquery.dataTables.min.js')}}"></script>
+
+
+
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/S
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="js/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">科研成果统计软件</span>
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+    <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">姓名</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>Juan</h4>
+                    <span class="email">youremail@yourdomain.com</span>
+                    <ul>
+                        <li><a href="editprofile.html">编辑资料</a></li>
+                        <li><a href="dashboard.html">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+    
+    
+    
+    <div class="header">
+    	<ul class="headermenu">
+        	<li><a href="/dashboard"><span class="icon icon-flatscreen"></span>首页</a></li>
+        	<li><a href="/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li><a href="/newpost"><span class="icon icon-message"></span>论文导出</a></li>
+            <li><a href="/tables"><span class="icon icon-chart"></span>论文列表</a></li>
+        </ul>
+
+        
+    </div><!--header-->
+    
+   
+        
+    <div class="centercontent tables">
+    
+        <div class="pageheader notab">
+            <h1 class="pagetitle">Tables</h1>
+            <span class="pagedesc">This is a sample description of a page</span>
+            
+        </div><!--pageheader-->
+        
+        <div id="contentwrapper" class="contentwrapper">
+                        
+                <div class="contenttitle2">
+                	<h3>Standard Table</h3>
+                </div><!--contenttitle-->
+                	
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                    <colgroup>
+                        <col class="con0" style="width: 20%" />
+                        <col class="con1" />
+                        <!--<col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />-->
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head0">Rendering engine</th>
+                            <th class="head1">Browser</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>论文名称(中文名称)</td>
+                            <td>sdsf</td>
+                        </tr>
+                        <tr>
+                            <td>论文名称(英文名称)</td>
+                            <td>Internet Explorer 5.0</td>
+                        </tr>
+                        <tr>
+                            <td>第一作者</td>
+                            <td>Internet  Explorer 5.5</td>
+                        </tr>
+                        <tr>
+                            <td>第二作者</td>
+                            <td>Internet Explorer 6</td>
+                        </tr>
+                        <tr>
+                            <td>第三作者</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>刊物名称</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>第三作者</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>发表时间</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>发表期</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>发表卷</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>发表页码</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>第一通讯单位</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>收录类型</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>检索号</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>分区</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                        <tr>
+                            <td>影响因子</td>
+                            <td>Internet Explorer 7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <br /><br />
+                                         
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>
