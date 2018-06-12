@@ -1,0 +1,28 @@
+#--------------teacher--------------
+@app.route("/tec/forms",methods=['GET','POST']) #教师端添加数据
+@app.route('/txtdownload01', methods=['GET']) #教师端导出论文txt
+@app.route('/txtdownload02', methods=['GET']) #教师端导出专著txt
+@app.route('/txtdownload03', methods=['GET']) #教师端导出专利txt
+@app.route('/txtdownload04', methods=['GET']) #教师端导出项目txt
+
+@app.route('/xlsdownload01',methods=['GET']) #教师端导出论文xls
+@app.route('/xlsdownload02',methods=['GET']) #教师端导出专著xls
+@app.route('/xlsdownload03',methods=['GET']) #教师端导出专利xls
+@app.route('/xlsdownload04',methods=['GET']) #教师端导出项目xls
+
+@app.route('/tec/export_academic',methods=['GET','POST']) #教师端 显示论文详情
+@app.route('/tec/export_monograph',methods=['GET','POST']) #教师端 显示专注详情
+@app.route('/tec/export_patent',methods=['GET','POST']) #教师端 显示专利详情
+@app.route('/tec/export_project',methods=['GET','POST']) #教师端 显示项目详情
+#--------------su--------------
+@app.route("/su/academic_manage",methods=['GET','POST'])  #超级管理员 管理论文页面
+@app.route("/su/project_manage",methods=['GET','POST'])   #超级管理员 管理项目页面
+@app.route("/su/patent_manage",methods=['GET','POST'])    #超级管理员 管理专利页面
+@app.route("/su/mono_manage",methods=['GET','POST'])      #超级管理员 管理专著页面
+@app.route("/su/students",methods=['GET','POST'])         #超级管理员 管理学生名单页面
+@app.route("/su/teachers",methods=['GET','POST'])         #超级管理员 管理老师名单页面
+
+
+
+
+
