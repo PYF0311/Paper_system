@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/jquery.dialogbox.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-ui-1.8.16.custom.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.cookie.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.dataTables.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.uniform.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.dialogBox.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/patent.js')}}"></script>
+
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="js/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">科研成果统计软件</span>
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}}管理员</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>管理员</h4>
+                    <span class="email">administrator</span>
+                    <ul>
+                        <li><a href="editpassword.html">修改密码</a></li>
+                        <li><a href="dashboard.html">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+    
+    
+    
+    <div class="header">
+        <ul class="headermenu">
+            
+            <li ><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li><a href="/tec/tables"><span class="icon icon-message"></span>论文列表</a></li>
+            <li class="current"><a href="/tec/academic_manage"><span class="icon icon-chart"></span>论文导出</a></li>
+       </ul>
+
+        
+    </div><!--header-->
+           <div class="vernav2 iconmenu">
+        <ul>
+            <li ><a href="/tec/academic_manage" class="elements">期刊论文</a></li>
+            <li><a href="/tec/degree_manage" class="elements">学位论文</a></li>
+            <li class="current"><a href="/tec/patent_manage" class="elements">专利</a></li>
+            <li><a href="/tec/project_manage" class="elements">参加项目</a></li>
+            <li><a href="/tec/monograph_manage" class="elements">专著</a></li>
+            <li><a href="/tec/standard_manage" class="elements">标准</a></li>
+      </ul>
+        <a class="togglemenu"></a>
+        <br /><br />
+       
+        <br /><br />
+    </div><!--leftmenu-->
+    <div class="line"></div>
+     <div class="centercontent tables" >
+        <div class="tableoptions">
+                    <button class="deletebutton">删除</button> &nbsp;
+                    <button class="detailbutton">详情</button> &nbsp;
+                    <button class="editbutton">编辑</button> &nbsp;
+                    
+             <button class="addmulti">批量导入</button> &nbsp;
+                    <span style="float:right">
+                    <button class="exportbutton_execl">导出execl</button> &nbsp;
+                    <button class="exportbutton_txt">导出txt</button> &nbsp;
+               </span>
+        </div><!--tableoptions-->
+        	<div id="dialogBox"></div>  
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="patent_hou">
+                    <colgroup>
+                        <col class="con1" style="width: 45px" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" style="width: 100px"/>
+                        <col class="con1" style="width: 100px"/>
+                        <col class="con0" style="width: 100px"/>
+						<col class="con1" style="width: 100px"/>
+                        <col class="con0"/>
+                        <col class="con1"/>
+                        <col class="con0" style="width: 75px"/>
+                        <col class="con1"/>
+                        <col class="con0" style="width: 75px"/>
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head1 nosort" align="center"><input type="checkbox" class="checkall"/></th>
+                            <th class="head1">编号</th>
+                            <th class="head1">专利名称</th>
+                            <th class="head1">英文名称</th>
+                            <th class="head1">专利类型</th>
+                            <th class="head1">第一发明人</th>
+                            <th class="head1">第二发明人</th>
+                            <th class="head1">第三发明人</th>
+                            <th class="head1">专利申请时间</th>
+                            <th class="head1">专利号</th>
+                            <th class="head1">是否授权</th>
+                            <th class="head1">专利授权时间</th>
+                            <th class="head1">是否转让</th>
+                            <th class="head1">转让单位</th>     
+                        </tr>
+                    </thead>
+                    <tbody id="patent_ta">
+                        {% for i in range(length) %}
+                        <tr class="gradeX">
+                            <td align="center"><span class="center">
+                            <input type="checkbox" />
+                          </span></td>
+                            <td>{{results[i][0]}}</td>
+                            <td>{{results[i][1]}}</td>
+                            <td>{{results[i][2]}}</td>
+                            <td>{{results[i][3]}}</td>
+                            <td>{{results[i][12]}}</td>
+                            <td>{{results[i][13]}}</td>
+                            <td>{{results[i][14]}}</td>
+                            <td>{{results[i][4]}}</td>
+                            <td>{{results[i][10]}}</td>
+                            <td>{{results[i][5]}}</td>
+                            <td>{{results[i][6]}}</td>
+                            <td>{{results[i][7]}}</td>
+                            <td>{{results[i][8]}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+  <!--      ((1, '专利测试', 'zhuanli', '发明专利', '2018-01-01', '是', '2018-01-01', '是', '天津市', '南开区', '3', 1, '王小明', '李晓芳', '张晓东', '张明', '王聪', '', '', ''),-->
+
+        
+    </div><!-- centercontent -->
+    
+    
+    <hr >
+        
+
+    
+    
+</div>
+     </div><!--bodywrapper-->
+
+</body>
+</html>

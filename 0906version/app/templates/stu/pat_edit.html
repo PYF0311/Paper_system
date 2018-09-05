@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/widgets.js')}}"></script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">科研成果统计软件</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 同学</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4>
+                    <span class="email">&nbsp;{{userid}}</span>
+                    <ul>
+                        <li><a href="/stu/editprofile">编辑资料</a></li>
+                        <li><a href="/stu/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu">
+            <li><a href="/dashboard"><span class="icon icon-flatscreen"></span>首页</a></li>
+            <li><a href="/stu/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li class="current"><a href="/stu/tables"><span class="icon icon-message"></span>论文编辑</a></li>
+       </ul>
+    </div><!--header-->
+
+        
+         <div  class="subcontent">
+           <form class="stdform" name="myform">   
+            <input type="hidden" name="tag" value="patent" /> 
+                        <p>
+                            <small class="desc">专利名称</small>
+                            <label>中文名称</label>
+                            <span class="field">
+                                <input type="text" name="patentNameCH" class="mediuminput" placeholder={{resultset[0]['patentNameCH']}} >
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="patent"/>
+                            </span>
+                            <label>英文名称</label>
+                            <span class="field"><input type="text" name="patentNameEN" class="mediuminput" placeholder={{resultset[0]['patentNameEN']}}></span> 
+                        </p>
+                        <p>
+                            <label>专利类型</label>
+                            <span class="formwrapper">
+                                <input type="radio" name="patentType" value="发明专利" checked="checked"/> 发明专利 &nbsp; &nbsp;
+                                <input type="radio" name="patentType" value="实用新型专利" /> 实用新型专利 &nbsp; &nbsp;
+                                <input type="radio" name="patentType" value="外观设计专利"/> 外观设计专利 &nbsp; &nbsp;
+                            </span>
+                        </p> 
+                        <p>
+                            <small class="desc">发明人署名</small>
+                            <label>第一发明人</label>
+                            <span class="field">
+                                <input type="text" name="firstEdit" class="smallinput" placeholder={{resultset[0]['FirstEdit']}} >
+                          
+                            </span>
+                        </p>
+                        <p>
+                            <label>第二发明人</label>
+                            <span class="field">
+                                <input type="text"  name="secondEdit" class="smallinput" placeholder={{resultset[0]['SecondEdit']}}>
+                               
+                            </span>
+                        </p>
+                        <p>
+                            <label>第三发明人</label>
+                            <span class="field">
+                                <input type="text"  name="thirdEdit" class="smallinput" placeholder={{resultset[0]['ThirdEdit']}}>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第四发明人</label>
+                            <span class="field">
+                                <input type="text" name="fourthEdit" class="smallinput" placeholder={{resultset[0]['ForthEdit']}} >
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第五发明人</label>
+                            <span class="field">
+                                <input type="text"  name="fifthEdit" class="smallinput" placeholder={{resultset[0]['FifthEdit']}}>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第六发明人</label>
+                            <span class="field">
+                                <input type="text"  name="sixthEdit" class="smallinput" placeholder={{resultset[0]['SixthEdit']}}>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第七发明人</label>
+                            <span class="field">
+                                <input type="text" name="servenEdit" class="smallinput" placeholder={{resultset[0]['SeventhEdit']}}>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第八发明人</label>
+                            <span class="field">
+                                <input type="text" name="eightEdit" class="smallinput" placeholder={{resultset[0]['EighthEdit']}}>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>专利申请时间</label>
+                            <span class="field"><input type="date" placeholder={{resultset[0]['patentApplyTime']}} name="patentApplyTime" /></span>
+                        </p>
+                        <p>
+                            <label>专利号</label>
+                            <span class="field">
+                                <input type="text" name="patentNum" class="mediuminput" placeholder={{resultset[0]['patentNum']}} >
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="patent"/>
+                            </span>
+                        </p>
+                        <p>
+                        <label>是否授权</label>
+                            <span class="formwrapper">
+                                <input type="radio" name="ifAuthority" value="是"id="authorize_cho"/> 是 &nbsp; &nbsp;
+                                <input type="radio" name="ifAuthority" value="否" checked="checked" id="authorize_uncho"/> 否 &nbsp; &nbsp;
+                            </span>
+                        </p>
+                        <label>专利授权时间</label>
+                            <span class="field"><input type="date" name="patentAuthorityTime" placeholder={{resultset[0]['patentAuthorityTime']}}/></span>
+                        </p>                      
+                        <p>
+                            <label>是否转让</label>
+                            <span class="formwrapper">
+                                <input type="radio" name="ifTransfer" value="是"/> 是 &nbsp; &nbsp;
+                                <input type="radio" name="ifTransfer" value="否"checked="checked"/> 否 &nbsp; &nbsp;
+                            </span>
+                        </p>
+                        
+                            <p>
+                                <label>转让单位</label>
+                                <span class="field"><input type="text" name="transferSource" class="longinput" placeholder={{resultset[0]['transferSource']}}></span>
+                            </p>
+                            <p>
+                                <label>转让应用情况</label>
+                                <span class="field">
+                                    <textarea cols="80" rows="5" class="longinput" name="transferComment"></textarea>
+                                </span> 
+                            </p>
+                  		<p class="stdformbutton">
+                            <button type="button"  class="submit radius2">保存</button>
+                        </p>
+                    </form>
+            </div><!--subcontent-->
+                                         
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>

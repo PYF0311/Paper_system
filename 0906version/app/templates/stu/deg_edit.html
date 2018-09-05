@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/widgets.js')}}"></script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">科研成果统计软件</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 同学</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4>
+                    <span class="email">&nbsp;{{userid}}</span>
+                    <ul>
+                        <li><a href="/stu/editprofile">编辑资料</a></li>
+                        <li><a href="/stu/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu">
+            <li><a href="/dashboard"><span class="icon icon-flatscreen"></span>首页</a></li>
+            <li><a href="/stu/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li class="current"><a href="/stu/tables"><span class="icon icon-message"></span>论文编辑</a></li>
+       </ul>
+    </div><!--header-->
+
+<div  class="subcontent">
+                    <form name="myform" class="stdform" >   
+                        <input type="hidden" name="tag" value="degree" /> 
+                        <p>
+                            <small class="desc">学位论文名称</small>
+                            <label>中文名称</label>
+                            <span class="field">
+                                <input type="text" name="degPaperNameCH" class="mediuminput" placeholder = {{resultset[0]['degPaperNameCH']}} >
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                            </span>
+                            <label>英文名称</label>
+                            <span class="field"><input type="text" name="degPaperNameEN" class="mediuminput"placeholder = {{resultset[0]['degPaperNameEN']}} ></span>
+                        </p>
+                        <p>
+                            <label>论文类型</label>
+                            <span class="formwrapper">
+                                <input type="radio" checked= "checked" name="degType" value="硕士"/> 硕士&nbsp; &nbsp;
+                                <input type="radio" name="degType" value="博士" /> 博士   &nbsp; &nbsp;
+                                
+                            </span>
+                        </p> 
+                        <p>
+                            <label>作者</label>
+                            <span class="field">
+                                <input type="text" name="editor" class="smallinput" placeholder = {{resultset[0]['editor']}} >
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第一导师</label>
+                            <span class="field">
+                                <input type="text" name="firstProf" class="smallinput" placeholder = {{resultset[0]['firstProf']}} >
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第二导师</label>
+                            <span class="field"><input type="text" name="secondProf" class="smallinput" placeholder = {{resultset[0]['secondProf']}} ></span>
+                        </p>
+                        <p>
+                            <label>毕业单位</label>
+                            <span class="field"><input type="text" name="gradUnit" class="smallinput" placeholder = {{resultset[0]['gradUnit']}} ></span>
+                        </p>
+                        <p>
+                            <label>学校所在地</label>
+                            <span class="field"><input type="text" name="gradAdd" class="smallinput" placeholder = {{resultset[0]['gradAdd']}} ></span>
+                        </p>
+
+                        <p>
+                            <label>毕业时间</label>
+                            <span class="field"><input type="date" name="gradDate" placeholder = {{resultset[0]['gradDate']}} ></span>
+                        </p>
+         
+                        <p class="stdformbutton">
+                            <button type="button"  class="submit radius2">保存</button>
+                        </p>
+                    </form>
+
+            </div><!--subcontent-->
+
+    </div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>
