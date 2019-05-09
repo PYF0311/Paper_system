@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 老师</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4> 
+                    <ul>
+                        <li><a href="/tec/editprofile">编辑资料</a></li>
+                        <li><a href="/tec/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu"> 
+             <li ><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+             <li ><a href="/tec/tables"><span class="icon icon-chart"></span>论文列表</a></li>
+        </ul>
+    </div><!--header-->
+    
+           
+        <div>
+                <table cellpadding="0" style="width:100%" cellspacing="0" border="0" class="stdtable" id="dyntable2">
+                    <colgroup>
+                        <col class="con0" style="width: 20%" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head0">名称</th>
+                            <th class="head1">字段</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>项目名称(中文名称)</td>
+                                <td>{{resultset[0]['projectNameCH']}}</td>
+                            </tr>
+                            <tr>
+                                <td>项目名称(英文名称)</td>
+                                <td>{{resultset[0]['projectNameEN']}}</td>
+                            </tr>
+                            <tr>
+                                <td>项目编号</td>
+                                <td>{{resultset[0]['projectId']}}</td>
+                            </tr>
+                            <tr>
+                                <td>项目级别</td>
+                                <td>{{resultset[0]['projectLevel']}}</td>
+                            </tr>
+                            <tr>
+                                <td>项目主持人</td>
+                                <td>{{resultset[0]['projectHost']}}</td>
+                            </tr>
+                            <tr>
+                                <td>第一参与人</td>
+                                <td>{{resultset[0]['FirstEdit']}}</td>
+                            </tr>
+                            <tr>
+                                <td>第二参与人</td>
+                                <td>{{resultset[0]['SecondEdit']}}</td>
+                            </tr>
+                            <tr>
+                                <td>第三参与人</td>
+                                <td>{{resultset[0]['ThirdEdit']}}</td>
+                            </tr>
+                                                    <tr>
+                                <td>第四参与人</td>
+                                <td>{{resultset[0]['ForthEdit']}}</td>
+                            </tr>
+                                                    <tr>
+                                <td>第五参与人</td>
+                                <td>{{resultset[0]['FifthEdit']}}</td>
+                            </tr>
+                                                    <tr>
+                                <td>第六参与人</td>
+                                <td>{{resultset[0]['SixthEdit']}}</td>
+                            </tr>
+                                                    <tr>
+                                <td>第七参与人</td>
+                                <td>{{resultset[0]['SeventhEdit']}}</td>
+                            </tr>
+                                                    <tr>
+                                <td>第八参与人</td>
+                                <td>{{resultset[0]['EighthEdit']}}</td>
+                            </tr>
+                    		<tr>
+                    		    <td>项目编号</td>
+                    		    <td>{{resultset[0]['projectId']}}</td>
+                    		</tr>
+                    		<tr>
+                    		    <td>项目经费</td>
+                    		    <td>{{resultset[0]['projectFond']}}万元</td>
+                    		</tr>
+                                                    <tr>
+                                <td>项目起止时间</td>
+                                <td>{{resultset[0]['projectBeginTime']}}---{{resultset[0]['projectFinTime']}}</td>
+                            </tr>
+                            
+                    		<tr>
+                    		    <td>承担任务</td>
+                    		    <td>{{resultset[0]['projectTask']}}</td>
+                    		</tr>
+                            
+                          
+                        </tbody>
+                    </table>
+                
+                <br /><br />
+                                         
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>

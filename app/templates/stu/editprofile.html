@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+
+</head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <body class="withvernav">
+<div class="bodywrapper">
+<div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+           
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 同学</span>
+            </div><!--userinfo-->
+            
+ <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4>
+                    <span class="email">&nbsp;{{userid}}</span>
+                    <ul>
+                        <li><a href="/stu/editprofile">编辑资料</a></li>
+                        <li><a href="/stu/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu">
+            <li><a href="/stu/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li><a href="/stu/tables"><span class="icon icon-chart"></span>论文列表</a></li>
+       </ul>
+    </div><!--header-->
+<div class="centercontent">
+    <div  class="contentwrapper">   
+        <div class="subcontent">
+            <div style="margin-left: 60%;">
+            </div>
+                    <form class="stdform" id="editprofile_stu"  method="post">
+                        
+                        <p>
+                            <label>姓名</label>
+                            <span class="field">
+								<input type="text" name="stuName" class="mediuminput" style="background:#EEEEEE" placeholder = {{resultset[0]['stuName']}} readonly/>
+							</span>   
+                        </p> 
+                        <p>
+                            <label>学号</label>
+                            <span class="field">
+                                <input type="text" name="stuId" class="mediuminput" style="background:#EEEEEE" placeholder = {{resultset[0]['stuId']}} readonly/>
+                            </span>
+                        </p> 
+						<p>
+						    <label>性别</label>
+						    <span class="formwrapper" >
+								<input type="hidden" id="SEX_hid" value={{resultset[0]['SEX']}} />
+						        <input type="radio" name="SEX"  value="男" checked="checked"/>男 &nbsp; &nbsp;
+						        <input type="radio" name="SEX"   value="女"/>女 &nbsp; &nbsp;
+						    </span>
+						</p>  
+                        <p>
+                            <label>专业</label> 
+							<span class="field">
+							    <input type="text" name="major" class="mediuminput"placeholder = {{resultset[0]['major']}} style="background:#EEEEEE" readonly/>
+							</span>
+                        </p>
+                        <p>
+                            <label>类型</label>
+                            <span class="formwrapper" > 
+                                <input type="text" name="type" class="mediuminput"placeholder = {{resultset[0]['type']}} style="background:#EEEEEE" readonly/> 
+                            </span>
+                        </p>
+						 
+                        <p>
+                            <label>邮箱</label>
+                            <span class="field">
+                                <input type="text" name="email" class="mediuminput" placeholder = {{resultset[0]['email']}}/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>电话</label>
+                            <span class="field">
+                                <input type="text" name="stuTel" class="mediuminput"placeholder = {{resultset[0]['stuTel']}}/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第一导师</label>
+                            <span class="field"><input type="text" name="firstProf" class="mediuminput" placeholder = {{resultset[0]['firstProf']}} /></span>
+                        </p>
+                        <p>
+                            <label>第二导师</label>
+                            <span class="field"><input type="text" name="secondProf" class="mediuminput" placeholder = {{resultset[0]['secondProf']}} /></span>
+                        </p>
+                        <p>
+                            <label>联合培养单位</label>
+                            <span class="field"><input type="text" name="unitAddress" class="mediuminput" placeholder = {{resultset[0]['unitAddress']}} /></span>
+                        </p>
+                        
+                 
+                        <p class="stdformbutton">
+                            <button type="button"  class="submit radius2" >保存</button>
+                        </p>
+                    </form>      
+        </div><!--subcontent-->
+        
+        
+    </div><!--contentwrapper-->
+</div> <!--centercontent -->
+
+</div><!--bodywrapper-->
+    </body>
+  <script type="text/javascript">
+ 	jQuery.noConflict();
+ 	jQuery(document).ready(function($) {
+	var SEX_hid=$("#SEX_hid").val()
+	if(SEX_hid){
+		SEX_hid=SEX_hid.replace("/",""); 
+		$(":radio[name='SEX'][value='" + SEX_hid + "']").prop("checked", "checked");
+	}  
+  });
+ 
+  </script> 
+</html>

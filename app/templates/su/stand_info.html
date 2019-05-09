@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}}管理员</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>管理员</h4>
+                    <span class="email">administrator</span>
+                    <ul>
+                        <li><a href="/su/editpassword">修改密码</a></li>
+                        <li><a href="/su/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu">
+        	<li class="current"><a href="/su/academic_manage"><span class="icon icon-flatscreen"></span>论文管理</a></li>
+            <li ><a href="/su/students"><span class="icon icon-pencil"></span>学生管理</a></li>
+            <li ><a href="/su/teachers"><span class="icon icon-message"></span>教师管理</a></li>
+        </ul>
+    </div><!--header-->
+    
+        
+        <div>
+                <table cellpadding="0" style="width:100%" cellspacing="0" border="0" class="stdtable" id="dyntable2">
+                    <colgroup>
+                        <col class="con0" style="width: 20%" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="head0">名称</th>
+                            <th class="head1">字段</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>标准名称(中文名称)</td>
+                            <td>{{resultset[0]['standardNameCH']}}</td>
+                        </tr>
+                        <tr>
+                            <td>标准名称(英文名称)</td>
+                            <td>{{resultset[0]['standardNameEN']}}</td>
+                        </tr>
+						<tr>
+						    <td>作者</td>
+						    <td>{{resultset[0]['editor']}}</td>
+						</tr>
+                        <tr>
+                            <td>标准类型</td>
+                            <td>{{resultset[0]['standardType']}}</td>
+                        </tr>
+                        <tr>
+                            <td>标准编号</td>
+                            <td>{{resultset[0]['standardNum']}}</td>
+                        </tr>
+                        <tr>
+                            <td>颁布单位</td>
+                            <td>{{resultset[0]['standardAdd']}}</td>
+                        </tr>
+                        <tr>
+                            <td>颁布单位</td>
+                            <td>{{resultset[0]['standardDate']}}</td>
+                        </tr>
+                        
+                        
+                      
+                    </tbody>
+                </table>
+                
+                <br /><br />
+                                         
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>

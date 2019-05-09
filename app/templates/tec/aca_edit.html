@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 老师</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4> 
+                    <ul>
+                        <li><a href="/tec/editprofile">编辑资料</a></li>
+                        <li><a href="/tec/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu"> 
+             <li ><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+             <li ><a href="/tec/tables"><span class="icon icon-chart"></span>论文列表</a></li>
+        </ul>
+    </div><!--header-->
+
+        
+         <div id="academic_paper" class="subcontent">
+        <form class="stdform " name="form_edit"  >   
+        <input type="hidden" name="tag" value="academic_paper" />
+                    <p>
+                        <small class="desc">论文名称</small>
+                        <label>中文名称</label>
+                        <span class="field">
+                            <input type="text" name="acadPaperNameCH" placeholder={{resultset[0]['acadPaperNameCH']}} class="mediuminput"/>
+                            <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                        </span>
+                        <label>英文名称</label>
+                        <span class="field"><input type="text" name="acadPaperNameEN" class="mediuminput" placeholder = {{resultset[0]['acadPaperNameEN']}} ></span>
+                        
+                    </p>
+                    
+                    <p>
+                        <small class="desc">作者署名</small>
+                        <label>第一作者</label>
+                        <span class="field">
+                            <input type="text" name="firstEdit" class="smallinput" placeholder = {{resultset[0]['FirstEdit']}} >
+                            <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                             
+                        </span>
+                    </p>
+                    <p>
+                        <label>第二作者</label>
+                        <span class="field">
+                            <input type="text" name="secondEdit" class="smallinput" placeholder = {{resultset[0]['SecondEdit']}} >
+                        </span>
+                    </p>
+                    <p>
+                        <label>第三作者</label>
+                        <span class="field">
+                            <input type="text" name="thirdEdit"   class="smallinput"  placeholder = {{resultset[0]['ThirdEdit']}}>
+                        </span>
+                    </p>
+                    <p>
+                        <label>第四作者</label>
+                        <span class="field">
+                        	<input type="text" name="fourthEdit" class="smallinput" placeholder = {{resultset[0]['ForthEdit']}}>
+                        </span>
+                    </p>
+                    <p>
+                        <label>第五作者</label>
+                        <span class="field">
+                        	<input type="text" name="fifthEdit" class="smallinput" placeholder = {{resultset[0]['FifthEdit']}}>
+                        </span>
+                        </p>
+                    <p>
+                        <label>第六作者</label>
+                        <span class="field">
+                        	<input type="text" name="sixthEdit" class="smallinput" placeholder = {{resultset[0]['SixthEdit']}}>
+                        </span>
+                        </p>
+                    <p>
+                        <label>第七作者</label>
+                        <span class="field">
+                        	<input type="text" name="seventhEdit" class="smallinput" placeholder = {{resultset[0]['SeventhEdit']}}>
+                        </span>
+                        </p>
+                    <p>
+                        <label>第八作者</label>
+                        <span class="field">
+                        	<input type="text" name="eighthEdit" class="smallinput" placeholder = {{resultset[0]['EighthEdit']}}>
+                        </span>
+                    </p>
+                    <p>
+                    <p>
+                        <label>通讯作者</label>
+                        <span class="field">
+                        	<input type="text" name="transEdit" class="smallinput" placeholder = {{resultset[0]['TransEdit']}}>
+                        </span> 
+                    </p>
+                    
+                    <p>
+                        <small class="desc">刊物名称</small>
+                        <label>中文名称</label>
+                        <span class="field">
+                            <input type="text" name="issueNameCH"  class="mediuminput" placeholder = {{resultset[0]['issueNameCH']}}>
+                            <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                        </span>
+                        <label>英文名称</label>
+                        <span class="field"><input type="text"   name="issueNameEN" class="mediuminput" placeholder = {{resultset[0]['issueNameEN']}}></span>
+                        
+                    </p>
+                    <p>
+                        <label>发表时间</label> 
+                        <span class="field"> 
+       								<!-- <input type="month"   name="pubTime" placeholder = {{resultset[0]['pubTime']}}> -->
+       								<input name="pubTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['pubTime']}}    readonly> 
+       							</span>     
+                    </p>
+                    <p>
+                        <label>卷（期）</label>
+                        <span class="field">
+                            <input type="text" name="pubIssue" class="miniinput" default="发表卷" placeholder = {{resultset[0]['pubIssue']}} >
+                            <span>&nbsp;(</span>
+                            <input type="text" name="pubPeriod" class="miniinput" default="发表期" placeholder = {{resultset[0]['pubPeriod']}}>
+                            <span>)</span>
+                        </span> 
+                    </p>
+                    <p>
+                        <label>页码</label>
+                        <span class="field">
+       								<input type="hidden" id="pubPage_hid" value={{resultset[0]['pubPage']}}/>
+                            <input type="text" name="pubPage1" class="miniinput"  >
+                            <span>----</span>
+                            <input type="text" name="pubPage2" class="miniinput"  >
+                        </span> 
+                    </p>
+                    <p>
+                        <label>收录类型</label>
+                        <span class="formwrapper">
+       								<input type="hidden" id="paperType_hid" value={{resultset[0]['paperType']}}/>
+                            <input type="radio" name="paperType" value="一般期刊" checked="checked"/> 一般期刊[J] &nbsp; &nbsp;
+                            <input type="radio" name="paperType" value="核心期刊" /> 核心期刊[J] &nbsp; &nbsp;
+                            <input type="radio" name="paperType" value="EI收录"/> EI收录[J] &nbsp; &nbsp;
+                            <input type="radio" name="paperType" value="SCI收录"/> SCI收录[J] &nbsp; &nbsp;
+                            <input type="radio" name="paperType" value="会议论文集"/> 会议论文集 [A]&nbsp; &nbsp;
+                            <input type="radio" name="paperType" value="学位论文"/> 学位论文 [D]&nbsp; &nbsp;
+                        </span>
+                    </p>
+                    
+                    <p>
+                        <label>DOI</label>
+                        <span class="field"><input type="text"  name="indexNum" class="mediuminput" placeholder = {{resultset[0]['indexNum']}}  ></span>
+                    </p>
+                    <p>
+                        <label>IF</label>
+                        <span class="field"><input type="text"  name="impactFactor" class="miniinput" placeholder = {{resultset[0]['impactFactor']}}></span>
+                    </p>
+                    <p class="stdformbutton">
+                        <button type="button"    class="submit radius2">保存</button>
+                    </p>
+                </form>
+        </div><!--subcontent-->
+                                        
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript">
+	jQuery.noConflict();
+	jQuery(document).ready(function($) { 
+ 	var paperType_hid=$("#paperType_hid").val()
+ 	if(paperType_hid){
+ 		paperType_hid=paperType_hid.replace("/",""); 
+ 		$(":radio[name='paperType'][value='" + paperType_hid + "']").prop("checked", "checked");
+ 	} 
+	
+	var pubPage_hid=$("#pubPage_hid").val()
+	if(pubPage_hid){
+		pubPage_hid=pubPage_hid.replace("/","").split("-"); 
+		$("input[name='pubPage1']").attr('placeholder',pubPage_hid[0]);
+		$("input[name='pubPage2']").attr('placeholder',pubPage_hid[1]);
+	} 
+	
+  });
+ 
+  </script>
+</html>

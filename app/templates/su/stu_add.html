@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/student.js')}}"></script>
+
+</head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <body class="withvernav">
+<div class="bodywrapper">
+<div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+           
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 同学</span>
+            </div><!--userinfo-->
+            
+ <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4>
+                    <span class="email">&nbsp;{{userid}}</span>
+                    <ul>
+                        <li><a href="/su/editpassword">修改密码</a></li>
+                        <li><a href="/su/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu">
+            <li><a href="/stu/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+            <li><a href="/stu/tables"><span class="icon icon-message"></span>论文列表</a></li>
+       </ul>
+    </div><!--header-->
+<div class="centercontent">
+    <div  class="contentwrapper">   
+        <div class="subcontent">
+            <div style="margin-left: 60%;">
+            </div>
+                    <form class="stdform" id="stu_add_form"  method="post">
+                        
+                        <p>
+                            <label>姓名</label>
+                            <span class="field"><input type="text" name="stuName" class="mediuminput" /></span>   
+                        </p> 
+                        <p>
+                            <label>学号</label>
+                            <span class="field">
+                                <input type="text" name="stuId" class="mediuminput" />
+                            </span>
+                        </p>
+                        <p>
+                            <label>性别</label>
+                            <span class="formwrapper" >
+                                <input type="radio" name="SEX"  value="男" checked="checked"/>男 &nbsp; &nbsp;
+                                <input type="radio" name="SEX"   value="女"/>女 &nbsp; &nbsp;
+                            </span>
+                        </p>
+                        <p>
+                            <label>专业</label>
+                            <span class="formwrapper" >
+                             <input type="radio" name="major"  value="生物学"/>生物学 &nbsp; &nbsp;
+                              <span  style="display:none">
+                               <select  >
+                                <option value="微生物学">微生物学</option>
+                                <option value="分子生物学">分子生物学</option>
+                               </select>
+                              </span>
+                             <br />
+                             
+                             <input type="radio" name="major" value="食品科学与工程"/>食品科学与工程 &nbsp; &nbsp;
+                              <span style= "display:none">
+                               <select  >
+                                <option value="食品科学">食品科学</option>
+                                <option value="农产品加工及贮藏工程">农产品加工及贮藏工程</option>
+                                <option value="水产品加工及贮藏工程">水产品加工及贮藏工程</option>
+                                <option value="食品质量与安全">食品质量与安全</option>
+                               </select>
+                              </span>
+                             <br />
+                             
+                             <input type="radio" name="major" value="农产品加工与安全领域" />农业硕士 &nbsp; &nbsp;
+                              <span style="display:none">
+                               <select>
+                                <option>农产品加工与安全领域</option>
+                               </select>
+                              </span>
+                              <br />
+                             <input type="radio" name="major" value="食品工程" />工程硕士 &nbsp; &nbsp;
+                              <span  style="display:none">
+                               <select>
+                                <option>食品工程</option>
+                               </select>
+                              </span>
+                              <br />
+                              <input type="radio" name="major"  value="水产品加工"/>水产 &nbsp; &nbsp;
+                              <span  style="display:none">
+                               <select>
+                                <option>水产品加工</option>
+                               </select>
+                              </span>
+                              <br />
+                             <input type="radio" name="major" value="食品科学" checked="checked"/>食品科学（2011级前） &nbsp; &nbsp;<br />
+                             <input type="radio" name="major"  value="微生物学" />微生物学 （2011级前）&nbsp; &nbsp;<br />
+                             <input type="radio" name="major" value="农产品加工及贮藏工程" />农产品加工及贮藏工程 （2011级前）&nbsp; &nbsp;<br />
+                            </span>
+                        </p>
+                        <p>
+                            <label>类型</label>
+                            <span class="formwrapper" >
+                                <input type="radio" name="type" value="博士"/>博士 &nbsp; &nbsp;
+                                <input type="radio" name="type" value="工学硕士" checked="checked"/>工学硕士 &nbsp; &nbsp;
+                                <input type="radio" name="type" value="理学硕士"/>理学硕士 &nbsp; &nbsp;
+                                <input type="radio" name="type" value="农业硕士（非全日制）"/>农业硕士（非全日制） &nbsp; &nbsp;
+                                <input type="radio" name="type" value="工程硕士（非全日制）"/>工程硕士（非全日制） &nbsp; &nbsp;
+                                <input type="radio" name="type" value="专硕"/>专硕 &nbsp; &nbsp;
+                            </span>
+                        </p>
+                        <p>
+                            <label>邮箱</label>
+                            <span class="field">
+                                <input type="text" name="email" class="mediuminput"/>
+                            </span>
+                        </p>
+						
+                        <p>
+                            <label>电话</label>
+                            <span class="field">
+                                <input type="text" name="stuTel" class="mediuminput"/>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第一导师</label>
+                            <span class="field"><input type="text" name="firstProf" class="mediuminput" /></span>
+                        </p>
+                        <p>
+                            <label>第二导师</label>
+                            <span class="field"><input type="text" name="secondProf" class="mediuminput"  /></span>
+                        </p>
+                        <p>
+                            <label>联合培养单位</label>
+                            <span class="field"><input type="text" name="unitAddress" class="mediuminput"  /></span>
+                        </p>
+                        
+                 
+                        <p class="stdformbutton">
+                            <button type="button"  class="submit radius2"  >保存</button>
+                        </p>
+                    </form>      
+        </div><!--subcontent-->
+        
+        
+    </div><!--contentwrapper-->
+</div> <!--centercontent -->
+
+</div><!--bodywrapper-->
+    </body>
+
+</html>

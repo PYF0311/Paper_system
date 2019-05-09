@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/webuploader.css')}}" >
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.dataTables.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.uniform.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.leanModal.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/su/students.js')}}"></script>
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+            
+            <br clear="all" />
+            
+        </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}}管理员</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>管理员</h4>
+                    <span class="email">administrator</span>
+                    <ul>
+                        <li><a href="/su/editpassword">修改密码</a></li>
+                        <li><a href="/su/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+    
+    
+    
+    <div class="header">
+        <ul class="headermenu">
+            <li><a href="/su/academic_manage"><span class="icon icon-flatscreen"></span>论文管理</a></li>
+            <li  class="current"><a href="/su/students"><span class="icon icon-pencil"></span>学生管理</a></li>
+            <li ><a href="/su/teachers"><span class="icon icon-message"></span>教师管理</a></li>
+             
+
+        </ul>
+        
+     
+    </div><!--header-->
+    
+    <div >
+		<div class="tableoptions">
+                    <button class="deletebutton">删除</button> &nbsp;
+                	<button class="editbutton">编辑</button> &nbsp;
+                	<button class="addbutton">新增</button> &nbsp;
+                	<a id="go" rel="leanModal" name="signup" href="#signup" class="abutton">批量导入</a>
+                	 
+                	<div id="signup">
+                		<div id="signup-ct">
+                					<div id="signup-header">
+                						<h2>批量导入 </h2>
+                						<a class="modal_close" href="#"></a>
+                					</div> 
+                						<div>
+                							<form id="uploadForm"   enctype="multipart/form-data">
+                							 <div class="win">
+                							   <input id="File1" name="file"    type="file" value="" />
+                							 </div>
+                							   <p class="win"><a class="load">点击此处下载模板</a>并填写</p>
+                							 <div class="win">  
+                							   <input id="btnImportOK" type="button"   value="上传" />
+                							 </div>
+                						   </form> 
+                						</div> 
+                		</div>
+                	</div>
+               </div><!--tableoptions-->
+
+        <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="stumanage">
+                    <colgroup>
+                        <col class="con1" style="width:45px;"/>
+                        <col class="con0" style="width:100px;"/>
+                        <col class="con1" style="width:100px;"/>
+                        <col class="con0" />
+						<col class="con1" style="width:50px;"/>
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+						<col class="con1" />
+                        <col class="con0" style="width:100px;"/>
+                        <col class="con1" style="width:100px;"/>
+                        <col class="con0" />
+                    </colgroup>
+                    <thead>
+                        <tr>  
+                        	<th class="head1 nosort" align="center"><input type="checkbox" class="checkall"/></th>
+                            <th class="head0">学号</th>
+                            <th class="head1">姓名</th>
+                            <th class="head0">密码</th>
+                            <th class="head1">性别</th>
+                            <th class="head0">专业</th>
+                            <th class="head1">类型</th>
+                            <th class="head0">邮箱</th>
+                            <th class="head1">电话</th>
+                            <th class="head0">第一导师</th>
+                            <th class="head1">第二导师</th>
+                            <th class="head0">联合培养单位</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {% for i in range(length) %}
+                        <tr class="gradeX">
+                           <td align="center"><span class="center">
+                            <input type="checkbox" />
+                          </span></td>
+                            <td>{{results[i]['stuId']}}</td>
+                            <td>{{results[i]['stuName']}}</td>
+                            <td>{{results[i]['password']}}</td>
+                            <td>{{results[i]['SEX']}}</td>
+                            <td>{{results[i]['major']}}</td>
+                            <td>{{results[i]['type']}}</td>
+                            <td>{{results[i]['email']}}</td>
+                            <td>{{results[i]['stuTel']}}</td>
+                            <td>{{results[i]['firstProf']}}</td>
+                            <td>{{results[i]['secondProf']}}</td>
+                            <td>{{results[i]['unitAddress']}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                        
+                    </tbody>
+
+
+                </table>
+    
+        
+	</div><!-- centercontent -->
+	
+         
+
+        
+	
+    
+</div><!--bodywrapper-->
+
+</body>
+</html>

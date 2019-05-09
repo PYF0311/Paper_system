@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,=">
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">集美<span>大学</span></h1>
+            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>
+            
+            <br clear="all" />
+            
+         </div><!--left-->
+        
+        <div class="right">
+            <div class="userinfo">
+                <span style="color: #FB9337;">欢迎!</span>
+                <span style="color: #FB9337;">{{username}} 老师</span>
+            </div><!--userinfo-->
+            
+            <div class="userinfodrop">
+                
+                <div class="userdata">
+                    <h4>{{username}}</h4> 
+                    <ul>
+                        <li><a href="/tec/editprofile">编辑资料</a></li>
+                        <li><a href="/tec/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+        </div><!--right-->
+    </div><!--topheader-->
+<div class="header">
+        <ul class="headermenu"> 
+             <li ><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
+             <li ><a href="/tec/tables"><span class="icon icon-chart"></span>论文列表</a></li>
+        </ul>
+    </div><!--header-->
+
+        
+         <div class="subcontent">
+           <form class="stdform" name="form_edit">   
+            <input type="hidden" name="tag" value="project" /> 
+                        <p>
+                            <small class="desc">项目名称</small>
+                            <label>中文名称</label>
+                            <span class="field">
+                                <input type="text" name="projectNameCH" class="mediuminput"placeholder = {{resultset[0]['projectNameCH']}}>
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                            </span>
+                            <label>英文名称</label>
+                            <span class="field"><input type="text" name="projectNameEN" class="mediuminput"placeholder = {{resultset[0]['projectNameEN']}}></span>
+                        </p>
+                        <p>
+                            <label>项目级别</label>
+                            <span class="formwrapper">
+           								<input type="hidden" id="projectLevel_hid" value={{resultset[0]['projectLevel']}}/>
+                                <input type="radio" name="projectLevel" value="国家级"/> 国家级 &nbsp; &nbsp;
+                                <input type="radio" name="projectLevel" value="省厅级" /> 省厅级 &nbsp; &nbsp;
+                                <input type="radio" name="projectLevel" value="市级" checked="checked"/> 市级 &nbsp; &nbsp;
+                                <input type="radio" name="projectLevel" value="企业横向课题"/> 企业横向课题 &nbsp; &nbsp;
+                            </span>
+                        </p>
+                        
+                        <p>
+                            <label>项目主持人</label>
+                            <span class="field"><input type="text" name="projectHost" class="smallinput" placeholder = {{resultset[0]['projectHost']}}></span>
+                        </p>
+                        <p>
+                            <small class="desc">参与项目署名排序</small>
+                            <label>第一参与人</label>
+                            <span class="field">
+                                <input type="text" name="firstEdit" class="smallinput" placeholder = {{resultset[0]['FirstEdit']}}>
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                                
+                            </span>
+                        </p>
+                        <p>
+                            <label>第二参与人</label>
+                            <span class="field">
+                                <input type="text" name="secondEdit" class="smallinput" placeholder = {{resultset[0]['SecondEdit']}}>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第三参与人</label>
+                            <span class="field">
+                                <input type="text" name="thirdEdit" class="smallinput"placeholder = {{resultset[0]['ThirdEdit']}} >
+                            </span>
+                        </p>
+                        <p>
+                            <label>第四参与人</label>
+                            <span class="field">
+                                <input type="text" name="fourthEdit" class="smallinput"placeholder = {{resultset[0]['ForthEdit']}} >
+                            </span>
+                        </p>
+                        <p>
+                            <label>第五参与人</label>
+                            <span class="field">
+                                <input type="text" name="fifthEdit" class="smallinput" placeholder = {{resultset[0]['FifthEdit']}}>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第六参与人</label>
+                            <span class="field">
+                                <input type="text" name="sixthEdit" class="smallinput"placeholder = {{resultset[0]['SixthEdit']}} >
+                            </span>
+                        </p>
+                        <p>
+                            <label>第七参与人</label>
+                            <span class="field">
+                                <input type="text" name="seventhEdit" class="smallinput" placeholder = {{resultset[0]['SeventhEdit']}}>
+                            </span>
+                        </p>
+                        <p>
+                            <label>第八参与人</label>
+                            <span class="field">
+                                <input type="text" name="eighthEdit" class="smallinput"placeholder = {{resultset[0]['EighthEdit']}} >
+                            </span>
+                        </p>
+                        <p>
+                            <label>项目编号</label>
+                            <span class="field">
+                                <input type="text" name="projectId" class="smallinput" placeholder = {{resultset[0]['projectId']}}>
+                                <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                            </span>
+                        </p>
+                       <p>
+                            <label>项目经费</label>
+                            <span class="field"><input type="text" name="projectFond"class="miniinput" placeholder = {{resultset[0]['projectFond']}}>&nbsp;万元</span>
+                          
+                       </p>
+                       <p>
+                            <label>项目起止时间</label>
+                            <span class="field">
+           								<input name="projectBeginTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['projectBeginTime']}}    readonly>
+                                <!-- <input type="month" name="projectBeginTime" placeholder = {{resultset[0]['projectBeginTime']}} /> -->
+                                <span>----</span>
+           								<input name="projectFinTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['projectFinTime']}}    readonly>
+                                <!-- <input type="month" name="projectFinTime" placeholder = {{resultset[0]['projectFinTime']}} /> -->
+                            </span> 
+                       </p>
+                       
+                        <p>
+                            <label>承担任务</label>
+                            <span class="field">
+                                <textarea cols="80" rows="5" class="longinput"name="projectTask" placeholder = {{resultset[0]['projectTask']}}></textarea>
+                            </span> 
+                        </p>
+                        <p class="stdformbutton">
+                            <button type="button"  class="submit radius2">保存</button>
+                        </p>
+                    </form>
+            </div><!--subcontent-->
+                                         
+                   
+	</div><!-- centercontent -->
+    
+    
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript">
+	 jQuery.noConflict();
+	 jQuery(document).ready(function($) { 
+ 	var projectLevel_hid=$("#projectLevel_hid").val()
+ 	if(projectLevel_hid){
+ 		projectLevel_hid=projectLevel_hid.replace("/",""); 
+ 		$(":radio[name='projectLevel'][value='" + projectLevel_hid + "']").prop("checked", "checked");
+ 	} 
+   });
+ </script>
+</html>

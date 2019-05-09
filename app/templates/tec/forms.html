@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>集美大学 | 食品与生物工程学院</title>
+<link rel="icon" href="data:;base64,="><link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script><!-- <script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery-ui-1.8.16.custom.min.js')}}"></script> --><script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script></head><body class="withvernav"><div class="bodywrapper"><div class="topheader">        <div class="left">            <h1 class="logo">集美<span>大学</span></h1>            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>                                   <br clear="all" />                    </div><!--left-->                <div class="right">            <div class="userinfo">                <span style="color: #FB9337;">欢迎!</span>                <span style="color: #FB9337;">{{username}} 老师</span>            </div><!--userinfo-->                        <div class="userinfodrop">                                <div class="userdata">                    <h4>{{username}}</h4>                    <span class="email"></span>                    <ul>
+                        <li><a href="/tec/editprofile">编辑资料</a></li>
+                        <li><a href="/tec/editpassword">修改密码</a></li>
+                        <li><a href="/logout">退出</a></li>
+                    </ul>                </div><!--userdata-->            </div><!--userinfodrop-->        </div><!--right-->    </div><!--topheader-->    <div class="header">        <ul class="headermenu">                        <li class="current"><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>            <li><a href="/tec/tables"><span class="icon icon-chart"></span>论文列表</a></li>                   </ul>    </div><!--header--><div class="centercontent01">    <div class="pageheader">            <ul class="hornav">                <li class="current" title="academic_paper"><span>期刊论文</span></li>                <li title="degree"><span>学位论文</span></li>                <li title="patent"><span>专利</span></li>                <li title="project"><span>参加项目</span></li>                <li title="monograph_paper"><span>专著</span></li>                <li title="standard"><span>标准</span></li>            </ul>        </div><!--pageheader-->    <div id="contentwrapper" class="contentwrapper"> 
+       <div id="academic_paper" class="subcontent">
+          <form class="stdform" name="tec_form_sub">   
+           <input type="hidden" name="tag" value="academic_paper" />
+                       <p>
+                           <small class="desc">论文名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="acadPaperNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="acadPaperNameEN" class="mediuminput"/></span>
+                           
+                       </p>
+                       
+                       <p>
+                           <small class="desc">作者署名</small>
+                           <label>第一作者</label>
+                           <span class="field">
+                               <input type="text" name="firstEdit" class="smallinput" onblur="getName(this)"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                               <input type="button" value="添加" onclick="addAcademic()">
+                           </span>
+                       </p>
+                       <p>
+                           <label>第二作者</label>
+                           <span class="field">
+                               <input type="text" name="secondEdit" class="smallinput" onblur="getName(this)"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label>第三作者</label>
+                           <span class="field">
+                               <input type="text" name="thirdEdit" class="smallinput" onblur="getName(this)"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label id="academic_t_name">通讯作者</label>
+                           <span class="field">
+                           <select name="transEdit" id="t_name">
+                           </select>                           
+                           </span>
+                       </p>
+                       
+                       <p>
+                           <small class="desc">刊物名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="issueNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="issueNameEN" class="mediuminput"/></span>
+                           
+                       </p>
+                       <p>
+                           <label>发表时间</label>
+                           <span class="field">
+  								<!-- <input type="month" name="pubTime" /> -->
+  								<input name="pubTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder="----年--月"    readonly>
+  			 
+  							</span>
+                       </p>
+                       <p>
+                           <label>卷（期）</label>
+                           <span class="field">
+                               <input type="text" name="pubIssue" class="miniinput" default="发表卷"/>
+                               <span>&nbsp;(</span>
+                               <input type="text" name="pubPeriod" class="miniinput" default="发表期"/>
+                               <span>)</span>
+                           </span> 
+                       </p>
+                       <p>
+                           <label>页码</label>
+                           <span class="field">
+                               <input type="text" name="pubPage1" class="miniinput" />
+                               <span>----</span>
+                               <input type="text" name="pubPage2" class="miniinput" />
+                           </span> 
+                       </p>
+                       <p>
+                           <label>收录类型</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="paperType" value="一般期刊" checked="checked"/> 一般期刊[J] &nbsp; &nbsp;
+                               <input type="radio" name="paperType" value="核心期刊" /> 核心期刊[J] &nbsp; &nbsp;
+                               <input type="radio" name="paperType" value="EI收录"/> EI收录[J] &nbsp; &nbsp;
+                               <input type="radio" name="paperType" value="SCI收录"/> SCI收录[J] &nbsp; &nbsp;
+                               <input type="radio" name="paperType" value="会议论文集"/> 会议论文集 [A]&nbsp; &nbsp;
+                               <input type="radio" name="paperType" value="学位论文"/> 学位论文 [D]&nbsp; &nbsp;
+                           </span>
+                       </p>
+                       
+                       <p>
+                           <label>DOI</label>
+                           <span class="field"><input type="text" name="indexNum" class="mediuminput" /></span>
+                       </p>
+                       <p>
+                           <label>IF</label>
+                           <span class="field"><input type="text" name="impactFactor" class="miniinput" /></span>
+                       </p>
+                       <p class="stdformbutton">
+                           <button type="button"  class="submit radius2">保存</button>
+                       </p>
+                   </form>
+           </div><!--subcontent-->
+       <div id="monograph_paper" class="subcontent" style="display: none">
+               
+                   <form name="tec_form_sub" class="stdform">
+                       <input type="hidden" name="tag" value="monograph" />
+                       <p>
+                           <small class="desc">专著名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="publicationNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="monograph"/>
+                               
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="publicationNameEN" class="mediuminput"/></span>
+                           
+                       </p>
+                        <p>
+                           <label>作者</label>
+                           <span class="field">
+							   <input type="text" name="editor" class="smallinput"/>
+							   <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="monograph"/>
+							   </span>
+                           <label>作者类型</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="editType" value="主编"/> 主编 &nbsp; &nbsp;
+                               <input type="radio" name="editType" value="副主编" /> 副主编 &nbsp; &nbsp;
+                               <input type="radio" name="editType" value="参编人员" checked="checked"/> 参编人员 &nbsp; &nbsp;
+                           </span>
+                       </p>
+                       
+                       <p>
+                           <label>出版时间</label>
+                           <span class="field">
+  								<!-- <input type="date" name="pubTime" /> -->
+  								<input name="pubTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
+  								<!-- <label Author="meizz" name="pubTime"class="labCalendar" onClick="setday(this);" onselectstart="return false;" style="width: 20%;padding: 8px 5px;" > </label> -->
+  							</span>
+                       </p>
+                       
+                       <p>
+                           <label>出版单位</label>
+                           <span class="field">
+                               <input type="text" name="pubUnit" class="mediuminput" />
+                               
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="monograph"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label>ISSN</label>
+                           <span class="field">
+                               <input type="text" name="ISSN" class="mediuminput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="monograph"/>
+                           </span>
+                       </p>
+                      
+                       <p>
+                           <label>完成字数</label>
+                           <span class="field"><input type="text" name="wordsNum" class="miniinput"/>&nbsp;字数</span>
+                         
+                      </p>
+                      <p>
+                           <label>主要编写内容</label>
+                           <span class="field">
+                               <textarea cols="80" rows="5" class="longinput" name="mainContent"></textarea>
+                           </span> 
+                       </p>
+                   
+                       
+                       
+                       <p class="stdformbutton">
+                           <button type="button" id="conference_btn"  class="submit radius2">保存</button>
+                       </p>
+                   </form>
+  
+           </div><!--subcontent-->
+       <div id="patent" class="subcontent" style="display: none">
+           <form name="tec_form_sub" class="stdform">
+               <input type="hidden" name="tag" value="patent" /> 
+                       <p>
+                           <small class="desc">专利名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="patentNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="patent"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="patentNameEN" class="mediuminput"/></span> 
+                       </p>
+                       <p>
+                           <label>专利类型</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="patentType" value="发明专利" checked="checked"/> 发明专利 &nbsp; &nbsp;
+                               <input type="radio" name="patentType" value="实用新型专利" /> 实用新型专利 &nbsp; &nbsp;
+                               <input type="radio" name="patentType" value="外观设计专利"/> 外观设计专利 &nbsp; &nbsp;
+                           </span>
+                       </p> 
+                       <p>
+                           <small class="desc">发明人署名</small>
+                           <label>第一发明人</label>
+                           <span class="field">
+                               <input type="text" name="firstEdit" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="patent"/>
+                               <input type="button" value="添加" onclick="addPatent()">
+                           </span>
+                       </p>
+                       <p>
+                           <label>第二发明人</label>
+                           <span class="field">
+                               <input type="text" name="secondEdit" class="smallinput" />
+                              
+                           </span>
+                       </p>
+                       <p id="patent_name">
+                           <label>第三发明人</label>
+                           <span class="field">
+                               <input type="text" name="thirdEdit" class="smallinput" />
+                               
+                           </span>
+                       </p>
+                       <p>
+                           <label>专利申请时间</label>
+                           <span class="field">
+  								<!-- <input type="date" name="patentApplyTime" /> -->
+  								<input name="patentApplyTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
+  							</span>
+                       </p>
+                       <p>
+                           <label>专利号</label>
+                           <span class="field">
+                               <input type="text" name="patentNum" class="mediuminput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="patent"/>
+                           </span>
+                       </p>
+                       <p>
+                       <label>是否授权</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="ifAuthority" value="是"id="authorize_cho"/> 是 &nbsp; &nbsp;
+                               <input type="radio" name="ifAuthority" value="否" checked="checked" id="authorize_uncho"/> 否 &nbsp; &nbsp;
+                           </span>
+                       </p>
+                       <p id="authorize_time" style="display:none">
+                       <label>专利授权时间</label>
+                           <span class="field">
+  								<!-- <input type="date" name="patentAuthorityTime" /> -->
+  								<input name="patentAuthorityTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
+  							</span>
+                       </p>                      
+                       <p>
+                           <label>是否转让</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="ifTransfer" value="是"id="transfer_y"/> 是 &nbsp; &nbsp;
+                               <input type="radio" name="ifTransfer" value="否"checked="checked" id="transfer_n"/> 否 &nbsp; &nbsp;
+                           </span>
+                       </p>
+                       <div id="transfer_info" style="display:none">
+                           <p>
+                               <label>转让单位</label>
+                               <span class="field"><input type="text" name="transferSource" class="longinput" /></span>
+                           </p>
+                           <p>
+                               <label>转让应用情况</label>
+                               <span class="field">
+                                   <textarea cols="80" rows="5" class="longinput" name="transferComment"></textarea>
+                               </span> 
+                           </p>
+                       </div>                      
+                       <p class="stdformbutton">
+                           <button type="button" id="patent_btn"  class="submit radius2">保存</button>
+                       </p>
+           </form>
+           
+       </div><!--subcontent-->
+       <div id="project" class="subcontent" style="display: none">
+                   <form name="tec_form_sub" class="stdform">   
+                       <input type="hidden" name="tag" value="project" /> 
+                       <p>
+                           <small class="desc">项目名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="projectNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="projectNameEN" class="mediuminput"/></span>
+                       </p>
+                       <p>
+                           <label>项目级别</label>
+                           <span class="formwrapper">
+                               <input type="radio" name="projectLevel" value="国家级"/> 国家级 &nbsp; &nbsp;
+                               <input type="radio" name="projectLevel" value="省厅级" /> 省厅级 &nbsp; &nbsp;
+                               <input type="radio" name="projectLevel" value="市级" checked="checked"/> 市级 &nbsp; &nbsp;
+                               <input type="radio" name="projectLevel" value="企业横向课题"/> 企业横向课题 &nbsp; &nbsp;
+                           </span>
+                       </p>
+                       
+                       <p>
+                           <label>项目主持人</label>
+                           <span class="field"><input type="text" name="projectHost" class="smallinput" /></span>
+                       </p>
+                       <p>
+                           <small class="desc">参与项目署名排序</small>
+                           <label>第一参与人</label>
+                           <span class="field">
+                               <input type="text" name="firstEdit" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                               <input type="button" onclick="addProject()" value="添加">
+                           </span>
+                       </p>
+                       <p>
+                           <label>第二参与人</label>
+                           <span class="field">
+                               <input type="text" name="secondEdit" class="smallinput" />
+                           </span>
+                       </p>
+                       <p id="project_name">
+                           <label>第三参与人</label>
+                           <span class="field">
+                               <input type="text" name="thirdEdit" class="smallinput" />
+                           </span>
+                       </p>
+                       <p>
+                           <label>项目编号</label>
+                           <span class="field">
+                               <input type="text" name="projectId" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="project"/>
+                           </span>
+                       </p>
+                      <p>
+                           <label>项目经费</label>
+                           <span class="field"><input type="text" name="projectFond"class="miniinput"/>&nbsp;万元</span>
+                         
+                      </p>
+                      <p>
+                           <label>项目起止时间</label>
+                           <span class="field">
+                               <!-- <input type="month" name="projectBeginTime" /> -->
+  								<input name="projectBeginTime" type="text" title="month" class="smallinput"  onFocus="setday(this);"    readonly>
+                               <span>----</span>
+  								<input name="projectFinTime" type="text" title="month" class="smallinput"  onFocus="setday(this);"    readonly>
+                               <!-- <input type="month" name="projectFinTime"  /> -->
+                           </span> 
+                      </p>
+                      
+                       <p>
+                           <label>承担任务</label>
+                           <span class="field">
+                               <textarea cols="80" rows="5" class="longinput"name="projectTask"></textarea>
+                           </span> 
+                       </p>
+        
+                       <p class="stdformbutton">
+                           <button type="button" id="project_btn"  class="submit radius2">保存</button>
+                       </p>
+                   </form>
+  
+           </div><!--subcontent-->    
+       <div id="standard" class="subcontent" style="display: none">
+           <form name="tec_form_sub" class="stdform">   
+                       <input type="hidden" name="tag" value="standard" /> 
+                       <p>
+                           <small class="desc">标准名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="standardNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="standard"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="standardNameEN" class="mediuminput"/></span>
+                       </p>
+                       <p>
+                           <label>作者</label>
+                           <span class="field">
+                           	<input type="text" name="editor" class="smallinput"/>
+                           	<img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="standard"/>
+                           </span>
+                           <label>标准类型</label>
+                           <span class="formwrapper">
+                               <input type="radio" checked= "checked" name="standardType" value="国家标准[GB]"/> 国家标准[GB] &nbsp; &nbsp;
+                               <input type="radio" name="standardType" value="地方标准[DB]" /> 地方标准[DB]   &nbsp; &nbsp;
+                               <input type="radio" name="standardType" value="企业标准[Q/]"/> 企业标准[Q/] &nbsp; &nbsp;
+                           </span>
+                       </p> 
+                       <p>
+                           <label>标准编号</label>
+                           <span class="field">
+                               <input type="text" name="standardNum" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="standard"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label>颁布单位</label>
+                           <span class="field"><input type="text" name="standardAdd" class="smallinput" /></span>
+                       </p>
+                       <p>
+                           <label>颁布时间</label>
+                           <span class="field">
+  								<!-- <input type="date" name="standardDate" /> -->
+  								<input name="standardDate" type="text"  class="smallinput"  onFocus="setday(this);"    readonly>
+  							</span>
+                       </p>
+        
+                       <p class="stdformbutton">
+                           <button type="button" class="submit radius2">保存</button>
+                       </p>
+                   </form>
+  
+           </div><!--subcontent--> 
+       <div id="degree" class="subcontent" style="display: none">
+                   <form name="tec_form_sub" class="stdform" >   
+                       <input type="hidden" name="tag" value="degree" /> 
+                       <p>
+                           <small class="desc">学位论文名称</small>
+                           <label>中文名称</label>
+                           <span class="field">
+                               <input type="text" name="degPaperNameCH" class="mediuminput"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                           </span>
+                           <label>英文名称</label>
+                           <span class="field"><input type="text" name="degPaperNameEN" class="mediuminput"/></span>
+                       </p>
+                       <p>
+                           <label>论文类型</label>
+                           <span class="formwrapper">
+                               <input type="radio" checked= "checked" name="degType" value="硕士"/> 硕士&nbsp; &nbsp;
+                               <input type="radio" name="degType" value="博士" /> 博士   &nbsp; &nbsp;
+                               
+                           </span>
+                       </p> 
+                       <p>
+                           <label>作者</label>
+                           <span class="field">
+                               <input type="text" name="editor" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label>第一导师</label>
+                           <span class="field">
+                               <input type="text" name="firstProf" class="smallinput" />
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="degree"/>
+                           </span>
+                       </p>
+                       <p>
+                           <label>第二导师</label>
+                           <span class="field"><input type="text" name="secondProf" class="smallinput" /></span>
+                       </p>
+                       <p>
+                           <label>毕业单位</label>
+                           <span class="field"><input type="text" name="gradUnit" class="smallinput" /></span>
+                       </p>
+                       <p>
+                           <label>学校所在地</label>
+                           <span class="field"><input type="text" name="gradAdd" class="smallinput" /></span>
+                       </p>
+  
+                       <p>
+                           <label>毕业时间</label>
+                           <span class="field">
+  								<!-- <input type="date" name="gradDate" /> -->
+  								<input name="gradDate" type="text"  class="smallinput"  onFocus="setday(this);"    readonly>
+  							</span>
+                       </p>
+        
+                       <p class="stdformbutton">
+                           <button type="button"  class="submit radius2">保存</button>
+                       </p>
+                   </form>
+  
+           </div><!--subcontent-->          
+   </div><!--contentwrapper-->
+  </div> <!--centercontent --></div><!--bodywrapper--><script type="text/javascript" src=" {{ url_for('static',filename='js/tec/forms.js')}}"></script> 
+</script>
+</body></html>
