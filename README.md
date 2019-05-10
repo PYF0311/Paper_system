@@ -1,19 +1,8 @@
 # Paper_system_demo
-1¡¢ajax½»»¥¶¼ÔÚcustom.jsÀï
-2¡¢execlµ¼³öjqÈçÏÂ£¬Ğëºó¶Ë·µ»ØÂÛÎÄÀàĞÍ
+1ã€ajaxäº¤äº’éƒ½åœ¨custom.jsé‡Œ
+2ã€execlå¯¼å‡ºjqå¦‚ä¸‹ï¼Œé¡»åç«¯è¿”å›è®ºæ–‡ç±»å‹
 jQuery('.exportbutton_execl').click(function(){
-		var pattern=jQuery('.pattern').val();  
-		post_data=table_data.getData();
-		var ex_url="/xlsdownload_"+pattern;
-		console.log(ex_url); 
-		if(post_data.length){ 
-		 $.ajax({
-	   			   url: ex_url, 
-				   data:{post_data: post_data},
-				      dataType: "text",
-				      type:"POST",
-					  success: function(data){
-					    msg = data.type  
+		 ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
 					    if(msg== 'academic'){
 					            window.open("/xlsdownload01");
 					        }
@@ -33,11 +22,6 @@ jQuery('.exportbutton_execl').click(function(){
 					            window.open("/xlsdownload06");
 					        }
 					   }, 
-				      error:function(){
-				        alert("ÏÂÔØÊ§°Ü");
-				      }
-			 }); 
-	}
-		else alert('ÇëÑ¡ÔñÊı¾İ');								//alert to ÇëÑ¡ÔñÊı¾İ
+				      					 
 	});
-3¡¢½ÌÊ¦Ìí¼Ó³É¹¦ºó£¬±í¸ñ½ÌÊ¦ĞÕÃûÀ¸Àï³öÏÖµÄÊÇ½Ì¹¤ºÅ¡£
+3ã€æ•™å¸ˆæ·»åŠ æˆåŠŸåï¼Œè¡¨æ ¼æ•™å¸ˆå§“åæ é‡Œå‡ºç°çš„æ˜¯æ•™å·¥å·ï¼Œå¯èƒ½å“ªé‡Œå‡ºç°äº†é”™è¯¯ã€‚
