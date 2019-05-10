@@ -1597,7 +1597,7 @@ def show_su_teacher_add():
 		department = request.form.get('department')
 		tecType = request.form.get('tecType')
 		result = forms.insert_tec(tecName,tecId,SEX,department,tecType)
- 		if result == True:
+		if result == True:
 			return jsonify({"msg":"已添加成功"})
 		else:
 			return jsonify({"msg":"抱歉，字段输入错误，请稍后再试"})

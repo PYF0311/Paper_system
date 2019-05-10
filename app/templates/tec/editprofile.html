@@ -6,9 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -105,23 +107,5 @@
 
 </div><!--bodywrapper-->
 	</body>
-<script type="text/javascript">
-	jQuery(document).ready(function(){ 
-	var SEX_hid=$("#SEX_hid").val()
-	if(SEX_hid){
-		SEX_hid=SEX_hid.replace("/",""); 
-		$(":radio[name='SEX'][value='" + SEX_hid + "']").prop("checked", "checked");
-	}  
-	var department_hid=$("#department_hid").val()
-	if(department_hid){
-		department_hid=department_hid.replace("/",""); 
-		$(":radio[name='department'][value='" + department_hid + "']").prop("checked", "checked");
-	}     
-	var tecType_hid=$("#tecType_hid").val()
-	if(tecType_hid){
-		tecType_hid=tecType_hid.replace("/",""); 
-		$(":radio[name='paperType'][value='" + tecType_hid + "']").prop("checked", "checked");
-	} 
-  });
-</script>
+ 
 </html>

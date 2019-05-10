@@ -1,20 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,="><link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script><!-- <script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery-ui-1.8.16.custom.min.js')}}"></script> --><script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script></head><body class="withvernav"><div class="bodywrapper"><div class="topheader">        <div class="left">            <h1 class="logo">集美<span>大学</span></h1>            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>                                   <br clear="all" />                    </div><!--left-->                <div class="right">            <div class="userinfo">                <span style="color: #FB9337;">欢迎!</span>                <span style="color: #FB9337;">{{username}} 老师</span>            </div><!--userinfo-->                        <div class="userinfodrop">                                <div class="userdata">                    <h4>{{username}}</h4>                    <span class="email"></span>                    <ul>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
+</head><body class="withvernav"><div class="bodywrapper"><div class="topheader">        <div class="left">            <h1 class="logo">集美<span>大学</span></h1>            <span class="slogan">食品与生物工程学院研究生科研成果管理系统</span>                                   <br clear="all" />                    </div><!--left-->                <div class="right">            <div class="userinfo">                <span style="color: #FB9337;">欢迎!</span>                <span style="color: #FB9337;">{{username}} 老师</span>            </div><!--userinfo-->                        <div class="userinfodrop">                                <div class="userdata">                    <h4>{{username}}</h4>                    <span class="email"></span>                    <ul>
                         <li><a href="/tec/editprofile">编辑资料</a></li>
                         <li><a href="/tec/editpassword">修改密码</a></li>
                         <li><a href="/logout">退出</a></li>
                     </ul>                </div><!--userdata-->            </div><!--userinfodrop-->        </div><!--right-->    </div><!--topheader-->    <div class="header">        <ul class="headermenu">                        <li class="current"><a href="/tec/forms"><span class="icon icon-pencil"></span>论文录入</a></li>            <li><a href="/tec/tables"><span class="icon icon-chart"></span>论文列表</a></li>                   </ul>    </div><!--header--><div class="centercontent01">    <div class="pageheader">            <ul class="hornav">                <li class="current" title="academic_paper"><span>期刊论文</span></li>                <li title="degree"><span>学位论文</span></li>                <li title="patent"><span>专利</span></li>                <li title="project"><span>参加项目</span></li>                <li title="monograph_paper"><span>专著</span></li>                <li title="standard"><span>标准</span></li>            </ul>        </div><!--pageheader-->    <div id="contentwrapper" class="contentwrapper"> 
        <div id="academic_paper" class="subcontent">
-          <form class="stdform" name="tec_form_sub">   
+          <form class="stdform" name="form_sub">   
            <input type="hidden" name="tag" value="academic_paper" />
                        <p>
                            <small class="desc">论文名称</small>
                            <label>中文名称</label>
                            <span class="field">
                                <input type="text" name="acadPaperNameCH" class="mediuminput"/>
-                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic_paper"/>
                            </span>
                            <label>英文名称</label>
                            <span class="field"><input type="text" name="acadPaperNameEN" class="mediuminput"/></span>
@@ -26,7 +29,7 @@
                            <label>第一作者</label>
                            <span class="field">
                                <input type="text" name="firstEdit" class="smallinput" onblur="getName(this)"/>
-                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic_paper"/>
                                <input type="button" value="添加" onclick="addAcademic()">
                            </span>
                        </p>
@@ -55,7 +58,7 @@
                            <label>中文名称</label>
                            <span class="field">
                                <input type="text" name="issueNameCH" class="mediuminput"/>
-                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic"/>
+                               <img src="{{ url_for('static', filename= '../static/images/star.png')}}" class="academic_paper"/>
                            </span>
                            <label>英文名称</label>
                            <span class="field"><input type="text" name="issueNameEN" class="mediuminput"/></span>
@@ -64,9 +67,7 @@
                        <p>
                            <label>发表时间</label>
                            <span class="field">
-  								<!-- <input type="month" name="pubTime" /> -->
-  								<input name="pubTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder="----年--月"    readonly>
-  			 
+  								<input class="flatpickr" data-date-format="Y-m" name="pubTime">
   							</span>
                        </p>
                        <p>
@@ -113,7 +114,7 @@
            </div><!--subcontent-->
        <div id="monograph_paper" class="subcontent" style="display: none">
                
-                   <form name="tec_form_sub" class="stdform">
+                   <form name="form_sub" class="stdform">
                        <input type="hidden" name="tag" value="monograph" />
                        <p>
                            <small class="desc">专著名称</small>
@@ -144,9 +145,7 @@
                        <p>
                            <label>出版时间</label>
                            <span class="field">
-  								<!-- <input type="date" name="pubTime" /> -->
-  								<input name="pubTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
-  								<!-- <label Author="meizz" name="pubTime"class="labCalendar" onClick="setday(this);" onselectstart="return false;" style="width: 20%;padding: 8px 5px;" > </label> -->
+  								<input class="flatpickr" data-date-format="Y-m-d" name="pubTime" >
   							</span>
                        </p>
                        
@@ -187,7 +186,7 @@
   
            </div><!--subcontent-->
        <div id="patent" class="subcontent" style="display: none">
-           <form name="tec_form_sub" class="stdform">
+           <form name="form_sub" class="stdform">
                <input type="hidden" name="tag" value="patent" /> 
                        <p>
                            <small class="desc">专利名称</small>
@@ -233,9 +232,8 @@
                        <p>
                            <label>专利申请时间</label>
                            <span class="field">
-  								<!-- <input type="date" name="patentApplyTime" /> -->
-  								<input name="patentApplyTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
-  							</span>
+  								<input class="flatpickr" data-date-format="Y-m-d" name="patentApplyTime" >
+								</span>
                        </p>
                        <p>
                            <label>专利号</label>
@@ -254,8 +252,7 @@
                        <p id="authorize_time" style="display:none">
                        <label>专利授权时间</label>
                            <span class="field">
-  								<!-- <input type="date" name="patentAuthorityTime" /> -->
-  								<input name="patentAuthorityTime" type="text" class="smallinput"  onFocus="setday(this);"    readonly>
+  								<input class="flatpickr" data-date-format="Y-m-d" name="patentAuthorityTime" > 
   							</span>
                        </p>                      
                        <p>
@@ -284,7 +281,7 @@
            
        </div><!--subcontent-->
        <div id="project" class="subcontent" style="display: none">
-                   <form name="tec_form_sub" class="stdform">   
+                   <form name="form_sub" class="stdform">   
                        <input type="hidden" name="tag" value="project" /> 
                        <p>
                            <small class="desc">项目名称</small>
@@ -346,11 +343,9 @@
                       <p>
                            <label>项目起止时间</label>
                            <span class="field">
-                               <!-- <input type="month" name="projectBeginTime" /> -->
-  								<input name="projectBeginTime" type="text" title="month" class="smallinput"  onFocus="setday(this);"    readonly>
+                               <input class="flatpickr" data-date-format="Y-m" name="projectBeginTime" > 
                                <span>----</span>
-  								<input name="projectFinTime" type="text" title="month" class="smallinput"  onFocus="setday(this);"    readonly>
-                               <!-- <input type="month" name="projectFinTime"  /> -->
+  								<input class="flatpickr" data-date-format="Y-m" name="projectFinTime" > 
                            </span> 
                       </p>
                       
@@ -368,7 +363,7 @@
   
            </div><!--subcontent-->    
        <div id="standard" class="subcontent" style="display: none">
-           <form name="tec_form_sub" class="stdform">   
+           <form name="form_sub" class="stdform">   
                        <input type="hidden" name="tag" value="standard" /> 
                        <p>
                            <small class="desc">标准名称</small>
@@ -407,8 +402,7 @@
                        <p>
                            <label>颁布时间</label>
                            <span class="field">
-  								<!-- <input type="date" name="standardDate" /> -->
-  								<input name="standardDate" type="text"  class="smallinput"  onFocus="setday(this);"    readonly>
+  								<input class="flatpickr" data-date-format="Y-m-d" name="standardDate" >  
   							</span>
                        </p>
         
@@ -419,7 +413,7 @@
   
            </div><!--subcontent--> 
        <div id="degree" class="subcontent" style="display: none">
-                   <form name="tec_form_sub" class="stdform" >   
+                   <form name="form_sub" class="stdform" >   
                        <input type="hidden" name="tag" value="degree" /> 
                        <p>
                            <small class="desc">学位论文名称</small>
@@ -469,8 +463,7 @@
                        <p>
                            <label>毕业时间</label>
                            <span class="field">
-  								<!-- <input type="date" name="gradDate" /> -->
-  								<input name="gradDate" type="text"  class="smallinput"  onFocus="setday(this);"    readonly>
+  								<input class="flatpickr" data-date-format="Y-m-d" name="gradDate"  > 
   							</span>
                        </p>
         
@@ -481,6 +474,6 @@
   
            </div><!--subcontent-->          
    </div><!--contentwrapper-->
-  </div> <!--centercontent --></div><!--bodywrapper--><script type="text/javascript" src=" {{ url_for('static',filename='js/tec/forms.js')}}"></script> 
+  </div> <!--centercontent --></div><!--bodywrapper--><script type="text/javascript" src=" {{ url_for('static',filename='js/forms.js')}}"></script> 
 </script>
 </body></html>

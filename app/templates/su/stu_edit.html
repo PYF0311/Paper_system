@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/student.js')}}"></script>
-
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
         <meta charset="UTF-8">
         <title></title>
@@ -30,7 +30,7 @@
         <div class="right">
             <div class="userinfo">
                 <span style="color: #FB9337;">欢迎!</span>
-                <span style="color: #FB9337;">{{username}} 同学</span>
+                <span style="color: #FB9337;">{{username}} 管理员</span>
             </div><!--userinfo-->
             
  <div class="userinfodrop">
@@ -48,9 +48,10 @@
     </div><!--topheader-->
 <div class="header">
         <ul class="headermenu">
-            <li><a href="/stu/forms"><span class="icon icon-pencil"></span>论文录入</a></li>
-            <li><a href="/stu/tables"><span class="icon icon-message"></span>论文列表</a></li>
-       </ul>
+        	<li ><a href="/su/academic_manage"><span class="icon icon-flatscreen"></span>论文管理</a></li>
+            <li ><a href="/su/students"><span class="icon icon-pencil"></span>学生管理</a></li>
+            <li ><a href="/su/teachers"><span class="icon icon-message"></span>教师管理</a></li>
+        </ul>
     </div><!--header-->
 <div class="centercontent">
     <div  class="contentwrapper">   

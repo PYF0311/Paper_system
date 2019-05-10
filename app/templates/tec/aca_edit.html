@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >  
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/flatpickr.min.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -137,8 +139,7 @@
                     <p>
                         <label>发表时间</label> 
                         <span class="field"> 
-       								<!-- <input type="month"   name="pubTime" placeholder = {{resultset[0]['pubTime']}}> -->
-       								<input name="pubTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['pubTime']}}    readonly> 
+       								<input class=flatpickr data-date-format="Y-m" name="pubTime" placeholder={{resultset[0]['pubTime']}}>  
        							</span>     
                     </p>
                     <p>
@@ -193,23 +194,5 @@
 </div><!--bodywrapper-->
 
 </body>
-<script type="text/javascript">
-	jQuery.noConflict();
-	jQuery(document).ready(function($) { 
- 	var paperType_hid=$("#paperType_hid").val()
- 	if(paperType_hid){
- 		paperType_hid=paperType_hid.replace("/",""); 
- 		$(":radio[name='paperType'][value='" + paperType_hid + "']").prop("checked", "checked");
- 	} 
-	
-	var pubPage_hid=$("#pubPage_hid").val()
-	if(pubPage_hid){
-		pubPage_hid=pubPage_hid.replace("/","").split("-"); 
-		$("input[name='pubPage1']").attr('placeholder',pubPage_hid[0]);
-		$("input[name='pubPage2']").attr('placeholder',pubPage_hid[1]);
-	} 
-	
-  });
  
-  </script>
 </html>

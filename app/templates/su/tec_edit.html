@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<!--弹窗样式-->
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script>
- <script type="text/javascript" src=" {{ url_for('static',filename='js/su/teachers.js')}}"></script>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -27,13 +27,13 @@
         
         <div class="right">
             <div class="userinfo">
-                <span style="color: #FB9337;">欢迎!</span>
+            	<span style="color: #FB9337;">欢迎!</span>
                 <span style="color: #FB9337;">管理员</span>
             </div><!--userinfo-->
             
             <div class="userinfodrop">
-                
-                <div class="userdata">
+            	
+				<div class="userdata">
                     <h4>{{username}}</h4>
                     <span class="email">{{userid}}</span>
                     <ul> 
@@ -46,58 +46,58 @@
     </div><!--topheader-->
 <div class="header">
         <ul class="headermenu">
-            <li ><a href="/su/academic_manage"><span class="icon icon-flatscreen"></span>论文管理</a></li>
+        	<li ><a href="/su/academic_manage"><span class="icon icon-flatscreen"></span>论文管理</a></li>
             <li ><a href="/su/students"><span class="icon icon-pencil"></span>学生管理</a></li>
             <li ><a href="/su/teachers"><span class="icon icon-message"></span>教师管理</a></li>
         </ul>  
     </div><!--header-->
 <div class="centercontent">
-    <div id="contentwrapper" class="contentwrapper">    
-        <div class="subcontent">
+    <div id="contentwrapper" class="contentwrapper">	
+    	<div class="subcontent">
                     <form class="stdform"   id="tec_edit_form"  method="POST">
                         <p>
-                            <label>姓名</label>
+                        	<label>姓名</label>
                             <span class="field"><input type="text" name="tecName" class="mediuminput" placeholder = {{resultset[0]['tecName']}}  /></span>   
                         </p>
                         <p>
                             <label>教工号</label>
                             <span class="field"><input type="text" name="tecId" class="mediuminput" placeholder = {{resultset[0]['tecId']}} /></span>   
                         </p>
+						<p>
+						    <label>密码</label>
+						    <span class="field"><input type="text" name="password" class="mediuminput" placeholder = {{resultset[0]['password']}} /></span>   
+						</p>
                         <p>
-                            <label>密码</label>
-                            <span class="field"><input type="text" name="password" class="mediuminput" placeholder = {{resultset[0]['password']}} /></span>   
-                        </p>
-                        <p>
-                            <label>性别</label>
+                        	<label>性别</label>
                             <span class="formwrapper" >
-                                <input type="hidden" id="SEX_hid" value={{resultset[0]['SEX']}} />
-                                <input type="radio" checked="checked" name="SEX" value="男"/>男 &nbsp; &nbsp;
-                                <input type="radio" name="SEX" value="女"/>女 &nbsp; &nbsp;
+								<input type="hidden" id="SEX_hid" value={{resultset[0]['SEX']}} />
+                            	<input type="radio" checked="checked" name="SEX" value="男"/>男 &nbsp; &nbsp;
+                            	<input type="radio" name="SEX" value="女"/>女 &nbsp; &nbsp;
                             </span>
                         </p>
                         <p>
-                            <label>教研室</label>
+                        	<label>教研室</label>
                             <span class="formwrapper" >
-                                <input type="hidden" id="department_hid" value={{resultset[0]['department']}} />
-                                <input type="radio" checked="checked" name="department" value="食工系"/>食工系 &nbsp; &nbsp;
-                                <input type="radio" name="department"  value="生物工程教研室"/>生物工程教研室 &nbsp; &nbsp;
-                                <input type="radio" name="department" value="环境工程教研室"/>环境工程教研室 &nbsp; &nbsp;
+								<input type="hidden" id="department_hid" value={{resultset[0]['department']}} />
+                            	<input type="radio" checked="checked" name="department" value="食工系"/>食工系 &nbsp; &nbsp;
+                            	<input type="radio" name="department"  value="生物工程教研室"/>生物工程教研室 &nbsp; &nbsp;
+                            	<input type="radio" name="department" value="环境工程教研室"/>环境工程教研室 &nbsp; &nbsp;
                            
                             </span>
                         </p>
                          <p>
-                            <label>导师类型</label>
+                        	<label>导师类型</label>
                             <span class="formwrapper" >
-                                <input type="hidden" id="tecType_hid" value={{resultset[0]['tecType']}} />
-                                <input type="radio" checked="checked" name="tecType" value="硕士导师"/>硕士导师 &nbsp; &nbsp;
-                                <input type="radio" name="tecType"  value="博士导师"/>博士导师 &nbsp; &nbsp;
+								<input type="hidden" id="tecType_hid" value={{resultset[0]['tecType']}} />
+                            	<input type="radio" checked="checked" name="tecType" value="硕士导师"/>硕士导师 &nbsp; &nbsp;
+                            	<input type="radio" name="tecType"  value="博士导师"/>博士导师 &nbsp; &nbsp;
                            
                             </span>
                         </p>
                         
                  
                         <p class="stdformbutton">
-                            <button type="button"     class="submit radius2">保存</button> 
+                        	<button type="button"     class="submit radius2">保存</button> 
                         </p>
                     </form>      
         </div><!--subcontent-->
@@ -107,15 +107,15 @@
 </div> <!--centercontent -->
 
 </div><!--bodywrapper-->
-    </body>
+	</body>
 <script type="text/javascript">
-    jQuery(document).ready(function(){
-    var SEX_hid=$("#SEX_hid").val().replace("/","");  
-    $(":radio[name='SEX'][value='" + SEX_hid + "']").prop("checked", "checked"); 
-    var department_hid=$("#department_hid").val().replace("/","");  
-    $(":radio[name='department'][value='" + department_hid + "']").prop("checked", "checked"); 
-    var tecType_hid=$("#tecType_hid").val().replace("/","");  
-    $(":radio[name='tecType'][value='" + tecType_hid + "']").prop("checked", "checked"); 
+	jQuery(document).ready(function(){
+	var SEX_hid=$("#SEX_hid").val().replace("/","");  
+	$(":radio[name='SEX'][value='" + SEX_hid + "']").prop("checked", "checked"); 
+	var department_hid=$("#department_hid").val().replace("/","");  
+	$(":radio[name='department'][value='" + department_hid + "']").prop("checked", "checked"); 
+	var tecType_hid=$("#tecType_hid").val().replace("/","");  
+	$(":radio[name='tecType'][value='" + tecType_hid + "']").prop("checked", "checked"); 
   });
 </script>
 </html>

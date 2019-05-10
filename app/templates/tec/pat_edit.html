@@ -6,9 +6,11 @@
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/flatpickr.min.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -131,9 +133,8 @@
                          <p>
                              <label>专利申请时间</label>
                              <span class="field">
-            								<!-- <input type="date" placeholder={{resultset[0]['patentApplyTime']}} name="patentApplyTime" /> -->
-            								<input name="patentApplyTime" type="text" placeholder={{resultset[0]['patentApplyTime']}} class="smallinput"  onFocus="setday(this);"    readonly>
-            							</span>
+            					 <input class="flatpickr" data-date-format="Y-m-d" name="patentApplyTime" placeholder={{resultset[0]['patentApplyTime']}}>
+            				 </span>
                          </p>
                          <p>
                              <label>专利号</label>
@@ -153,8 +154,7 @@
             						<p id="authorize_time"style="display:none" >
                          <label>专利授权时间</label>
                             <span class="field">
-            					<!-- <input type="date" name="patentAuthorityTime" placeholder={{resultset[0]['patentAuthorityTime']}}/> -->
-            					<input name="patentAuthorityTime" type="text"   class="smallinput"  onFocus="setday(this);" placeholder={{resultset[0]['patentAuthorityTime']}}   readonly>
+            					<input class="flatpickr" data-date-format="Y-m-d" name="patentAuthorityTime" placeholder={{resultset[0]['patentAuthorityTime']}}>
             				</span>
                          </p>                      
                          <p>
@@ -191,30 +191,5 @@
 </div><!--bodywrapper-->
 
 </body>
-<script type="text/javascript">
-	 jQuery.noConflict();
-	 jQuery(document).ready(function($) { 
- 	var patentType_hid=$("#patentType_hid").val()
-	if(patentType_hid){
-		patentType_hid=patentType_hid.replace("/",""); 
-		$(":radio[name='patentType'][value='" + patentType_hid + "']").prop("checked", "checked");
-	}
-	var ifAuthority_hid=$("#ifAuthority_hid").val()
-	if(ifAuthority_hid){
-		ifAuthority_hid=ifAuthority_hid.replace("/",""); 
-		if(ifAuthority_hid=='是'){
-			$(":radio[name='ifAuthority'][value='是']").prop("checked", "checked");
-			$("#transfer_info").css('display','block');//显示
-		}
-	}
- 	var ifTransfer_hid=$("#ifTransfer_hid").val()
- 	if(ifTransfer_hid){
- 		ifTransfer_hid=ifTransfer_hid.replace("/",""); 
- 		if(ifTransfer_hid=='是'){
- 			$(":radio[name='ifTransfer'][value='是']").prop("checked", "checked"); 
- 		 	$("#authorize_time").css('display','block');//显示
- 		 }
- 	} 
-   });
- </script>
+ 
 </html>

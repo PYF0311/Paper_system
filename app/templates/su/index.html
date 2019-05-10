@@ -6,11 +6,10 @@
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<!-- <script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-ui-1.8.16.custom.min.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.uniform.min.js')}}"></script> -->
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.slideunlock.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/index.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery.slideunlock.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/index.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 <!--[if IE 9]>
     <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
 <![endif]-->
@@ -34,7 +33,7 @@
 				
             </div><!--logo-->
             <br />
-            <form id="login" action="/su/academic_manage" method="post" >
+            <form id="su_login" action="/su/academic_manage" method="post" >
             <div>
              <div class="nousername">
 				<div class="loginmsg">用户名或密码不能为空</div>
@@ -63,7 +62,7 @@
                             <span id="label">>></span> <span id="labelTip">拖动滑块验证</span>
                         </div>
                 </div> 
-                <button id="rloginbutton" type="button">登录</button>
+                <button id="su_loginbtn" type="button">登录</button>
                 
                 <div class="keep">
                 	

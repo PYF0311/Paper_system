@@ -6,9 +6,11 @@
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/flatpickr.min.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -144,10 +146,10 @@
                        <p>
                             <label>项目起止时间</label>
                             <span class="field">
-								<input name="projectBeginTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['projectBeginTime']}}    readonly>
+								<input class="flatpickr" data-date-format="Y-m-d" name="projectBeginTime" placeholder={{resultset[0]['projectBeginTime']}}> 
                                 <!-- <input type="month" name="projectBeginTime" placeholder = {{resultset[0]['projectBeginTime']}} /> -->
                                 <span>----</span>
-								<input name="projectFinTime" type="text" title="month" class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['projectFinTime']}}    readonly>
+								<input class="flatpickr" data-date-format="Y-m-d" name="projectBeginTime" placeholder={{resultset[0]['projectBeginTime']}}>
                                 <!-- <input type="month" name="projectFinTime" placeholder = {{resultset[0]['projectFinTime']}} /> -->
                             </span> 
                        </p>
@@ -171,14 +173,5 @@
 </div><!--bodywrapper-->
 
 </body>
-<script type="text/javascript">
-	 jQuery.noConflict();
-	 jQuery(document).ready(function($) { 
- 	var projectLevel_hid=$("#projectLevel_hid").val()
- 	if(projectLevel_hid){
- 		projectLevel_hid=projectLevel_hid.replace("/",""); 
- 		$(":radio[name='projectLevel'][value='" + projectLevel_hid + "']").prop("checked", "checked");
- 	} 
-   });
- </script>
+ 
 </html>

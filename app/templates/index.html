@@ -6,12 +6,10 @@
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<!-- <script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-ui-1.8.16.custom.min.js')}}"></script> -->
-<!-- <script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.cookie.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.uniform.min.js')}}"></script> -->
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery.slideunlock.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/index.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery.slideunlock.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/index.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 <!--[if IE 9]>
     <link rel="stylesheet" media="screen" href="{{ url_for('static',filename='css/style.ie9.css')}}">
 <![endif]-->
@@ -37,7 +35,7 @@
             </div><!--logo-->
             
             
-            <form id="login" action="" method="POST" >
+            <form id="loginform"  method="POST" >
                 <div class="logo">
                 <span class="loginchoose">
                 <input type="radio" name="type" value='teacher'>&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,7 +68,7 @@
                             <span id="label">>></span> <span id="labelTip">拖动滑块验证</span>
                         </div>
                 </div> 
-                <button type="button" id="loginbutton">登录</button>
+                <button type="button" id="loginbtn">登录</button>
                 
                 <div class="keep">
                    

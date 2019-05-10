@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" >
-<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/webuploader.css')}}" >
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.dataTables.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.uniform.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/jquery.leanModal.min.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/common.js')}}"></script> 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/su/teachers.js')}}"></script>
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery.dataTables.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery.uniform.min.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery.leanModal.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/teachers.js')}}"></script>
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -61,8 +62,8 @@
     
     <div >
 <div class="tableoptions">
-                    <button class="deletebutton">删除</button> &nbsp;
-                	<button class="editbutton">编辑</button> &nbsp;
+                    <button class="tec_deletebutton">删除</button> &nbsp;
+                	<button class="tec_editbutton">编辑</button> &nbsp;
                 	<button class="addbutton">新增</button> &nbsp;
                 	<a id="go" rel="leanModal" name="signup" href="#signup" class="abutton">批量导入</a>
                 	 

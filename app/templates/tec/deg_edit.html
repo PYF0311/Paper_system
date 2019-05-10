@@ -6,9 +6,11 @@
 <title>集美大学 | 食品与生物工程学院</title>
 <link rel="icon" href="data:;base64,=">
 <link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/style.default.css')}}" > 
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/jquery-1.7.min.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/general.js')}}"></script>
-<script type="text/javascript" src=" {{ url_for('static',filename='js/tec/calendar.js')}}"></script> 
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static',filename='css/flatpickr.min.css')}}" > 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/jquery-1.7.min.js')}}"></script>  
+<script type="text/javascript" src=" {{ url_for('static',filename='js/flatpickr.min.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/general.js')}}"></script> 
+<script type="text/javascript" src=" {{ url_for('static',filename='js/custom.js')}}"></script>
 </head>
 
 <body class="withvernav">
@@ -100,8 +102,7 @@
                         <p>
                             <label>毕业时间</label>
                             <span class="field">
-                    			<!-- <input type="date" name="gradDate" placeholder = {{resultset[0]['gradDate']}} > -->
-                    			<input name="gradDate" type="text"  class="smallinput" onFocus="setday(this);"   placeholder={{resultset[0]['gradDate']}}    readonly>
+                    			<input class=flatpickr data-date-format="Y-m-d" name="gradDate" placeholder={{resultset[0]['gradDate']}}> 
                     		</span>
                     		
                         </p>
@@ -119,14 +120,5 @@
 </div><!--bodywrapper-->
 
 </body>
- <script type="text/javascript">
-	 jQuery.noConflict();
-	 jQuery(document).ready(function($) { 
- 	var degType_hid=$("#degType_hid").val()
- 	if(degType_hid){
- 		degType_hid=degType_hid.replace("/",""); 
- 		$(":radio[name='degType'][value='" + degType_hid + "']").prop("checked", "checked");
- 	} 
-	  });
- </script>
+ 
 </html>
