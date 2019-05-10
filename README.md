@@ -21,7 +21,5 @@ jQuery('.exportbutton_execl').click(function(){
 					        else if(msg =='stand'){ 
 					            window.open("/xlsdownload06");
 					        }
-					   }, 
-				      					 
-	});
+					   } 
 3、教师添加成功后，表格教师姓名栏里出现的是教工号，可能哪里出现了错误。
