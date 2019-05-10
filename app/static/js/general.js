@@ -333,7 +333,7 @@ jQuery('.formwrapper > input[name="major"]').change(function(){
 	 	ifAuthority_hid=ifAuthority_hid.replace("/",""); 
 	 	if(ifAuthority_hid=='是'){
 	 		$(":radio[name='ifAuthority'][value='是']").prop("checked", "checked");
-	 		$("#transfer_info").css('display','block');//显示
+	 		$("#authorize_time").css('display','block');//显示
 	 	}
 	 }
 	 var ifTransfer_hid=$("#ifTransfer_hid").val()
@@ -341,7 +341,7 @@ jQuery('.formwrapper > input[name="major"]').change(function(){
 	 	ifTransfer_hid=ifTransfer_hid.replace("/",""); 
 	 	if(ifTransfer_hid=='是'){
 	 		$(":radio[name='ifTransfer'][value='是']").prop("checked", "checked"); 
-	 	 	$("#authorize_time").css('display','block');//显示
+	 	 	$("#transfer_info").css('display','block');//显示
 	 	 }
 	 } 
 	 var projectLevel_hid=$("#projectLevel_hid").val()
