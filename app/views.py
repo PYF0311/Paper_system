@@ -1688,12 +1688,11 @@ def show_stand_info_su():
 
 @app.route('/up_file', methods=['GET', 'POST'])
 def up_file():
-    if request.method == "POST":
-        file = request.files['file'] 
-        file_name = file.filename
-        file.save(os.path.join('templates/files', file_name)) 
-        return '上传成功'
-		
+	if request.method == "POST":
+		file = request.files['file'] 
+		file_name = file.filename
+		file.save(os.path.join('templates/files', file_name))  
+		return '上传成功'		
 		
 @app.route("/aca_upload",methods=['GET','POST'])
 def upload_file():

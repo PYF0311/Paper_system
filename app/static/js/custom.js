@@ -572,12 +572,12 @@ $(function () {
 	}
 		else alert('请选择数据');								//alert to 请选择数据
 	});
-	
-	$("#btnImportOK").click(function () { 
-	              var formData = new FormData($("#uploadForm")[0]);
+	//academic
+	$("#aca_btnImport").click(function () { 
+	              var formData = new FormData($("#aca_uploadForm")[0]); 
 	              $.ajax({
 	                  type: "POST",
-	                  data: formData,
+	                  data:formData, 
 	                  url: "/up_file",
 	                  contentType: false,
 	                  processData: false,
@@ -587,11 +587,96 @@ $(function () {
 	　　				  error: function (returndata) { 
 	　　　　　			alert("上传失败！")
 	                  }
-	　　					})
-	  
-	          });	
+	　　					}) 
+	          });
+    //degree
+    $("#deg_btnImport").click(function () { 
+                  var formData = new FormData($("#deg_uploadForm")[0]); 
+                  $.ajax({
+                      type: "POST",
+                      data:formData, 
+                      url: "/up_file",
+                      contentType: false,
+                      processData: false,
+                      success:function (returndata) {
+    					alert(returndata) 
+    　　				  }, 
+    　　				  error: function (returndata) { 
+    　　　　　			alert("上传失败！")
+                      }
+    　　					}) 
+    });
+	//monograph
+	$("#mono_btnImport").click(function () { 
+	              var formData = new FormData($("#mono_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　					}) 
+	});
+	//patent
+	$("#pat_btnImport").click(function () { 
+	              var formData = new FormData($("#pat_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　					}) 
+	});
+	//project
+	$("#pro_btnImport").click(function () { 
+	              var formData = new FormData($("#pro_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　					}) 
+	});
+	//stand
+	$("#sta_btnImport").click(function () { 
+	              var formData = new FormData($("#sta_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　			 }) 
+	});
+	 
 });
-// /su/students.html 删除学生账号
+// /su/students.html  
 $(function () {
 	jQuery('.stu_deletebutton').click(function(){
 	post_data=table_data.getData();
@@ -631,7 +716,23 @@ $(function () {
 			})
 		}else alert('请选择一条数据');	
 	});
-	
+	//student批量导入
+	$("#stu_btnImport").click(function () { 
+	              var formData = new FormData($("#stu_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　			 }) 
+	});
 });
 // /su/stu_edit.html
 $(function () {
@@ -761,6 +862,23 @@ jQuery('.tec_deletebutton').click(function(){
 			}
 		}else alert('请选择数据');							 
 		});
+//teacher批量导入
+	$("#tec_btnImport").click(function () { 
+	              var formData = new FormData($("#tec_uploadForm")[0]); 
+	              $.ajax({
+	                  type: "POST",
+	                  data:formData, 
+	                  url: "/up_file",
+	                  contentType: false,
+	                  processData: false,
+	                  success:function (returndata) {
+						alert(returndata) 
+	　　				  }, 
+	　　				  error: function (returndata) { 
+	　　　　　			alert("上传失败！")
+	                  }
+	　　			 }) 
+	});
 });
 // /su/editpassword
 $(function () {
