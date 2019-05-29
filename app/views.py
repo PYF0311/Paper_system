@@ -131,6 +131,14 @@ class DegreeForm(Form):
 	gradAdd = StringField('gradAdd', validators=[Required()])
 	gradDate = StringField('gradDate', validators=[Required()])
 
+def stuinfo_operation(result):
+	result_set = []
+	result_title = ('stuName', 'grade','stuId','beginTime','password','SEX','major','type','email','stuTel','firstProf','secondProf','unitAddress')
+	for i in range(len(result)):
+		temp = dict(zip(result_title,result[i]))
+		result_set.append(temp)
+	return result_set
+
 @app.route('/login',methods=['GET','POST'])
 def login():
 	form = LoginForm()
@@ -156,11 +164,14 @@ def login():
 		else:
 			statecode=-1 #权限控制错误
 
-		
 		return jsonify({'result':statecode})	
+
 	elif request.method == 'GET':
 		return render_template('index.html')
  
+@app.route('/',methods=['GET','POST'])
+def jump_to_login():
+	return redirect(url_for('login'))
 @app.route("/404" ,methods=['GET'])
 def show_404():
 	return render_template('404.html')
@@ -248,7 +259,9 @@ def show_editprofile():
 		userid = session['username']
 		username = forms.show_stuname_from_db(userid)
 
-	return render_template('/stu/editprofile.html',form=form,userid=userid,username=username)
+	resultset = stuinfo_operation(forms.show_stuinfo_from_db_by_userid(userid))
+	print(resultset)
+	return render_template('/stu/editprofile.html',resultset=resultset,form=form,userid=userid,username=username)
 
 @app.route('/stu/editpassword',methods=['GET','POST'])
 def show_editpassword():
@@ -597,7 +610,7 @@ def stand_data_operation(result):
 
 def tec_data_operation(result):
 	result_set = []
-	result_title = ('tecId','tecName','SEX','department','tecType')
+	result_title = ('tecName','tecId','SEX','department','tecType','password')
 	for i in range(len(result)):
 		temp = dict(zip(result_title,result[i]))
 		result_set.append(temp)
@@ -632,21 +645,21 @@ def aca_print_operation(result):
 								if result['EighthEdit'] is not None:
 									editor = editor + "," + result['EighthEdit']
 
-	editor = editor.strip(',')
+	editor = editor.strip(',')+"."
 	papername = result['acadPaperNameCH']
-	pubname = result['issueNameCH']
+	pubname = result['issueNameCH']+","
 	issue = result['pubIssue']
 	period = result['pubPeriod']
 	page = result['pubPage']
-	year = result['pubTime'][0:4]
+	year = result['pubTime'][0:4]+","
 	paperType = result['paperType']
 	try:
 		if paperType == '学位论文':
-			printstr = editor + "." + papername + "[D]" + "." + pubname + "," + year + "," + period + "(" + issue + "):" + page
+			printstr = editor + papername + "[D]." + pubname + year + period + "(" + issue + "):" + page
 		elif paperType == '会议论文集':
-			printstr = editor + "." + papername + "[A]" + "." + pubname + "," + year + "," + period + "(" + issue + "):" + page
+			printstr = editor + papername + "[A]." + pubname + year + period + "(" + issue + "):" + page
 		elif paperType == '一般期刊' or paperType == '核心期刊' or paperType == 'EI收录' or paperType == 'SCI收录':
-			printstr = editor + "." + papername + "[J]" + "." + pubname + "," + year + "," + period + "(" + issue + "):" + page
+			printstr = editor + papername + "[J]." + pubname + year + period + "(" + issue + "):" + page
 	except Exception:
 		pass
 	return printstr	 
@@ -1563,7 +1576,32 @@ def show_su_student_add():
 	else:
 		return redirect(url_for('show_login'))
 	
+	if request.method == 'POST':
+		stuName = request.form.get('stuName')
+		stuId = request.form.get('stuId')
+		SEX = request.form.get('SEX')
+		major = request.form.get('major')
+		stuType = request.form.get('type')
+		email = request.form.get('email')
+		stuTel = request.form.get('stuTel')
+		firstProf = request.form.get('firstProf')
+		secondProf = request.form.get('secondProf')
+		unitAddress = request.form.get('unitAddress')
+		print(stuName,stuId,SEX,major,stuType,email,stuTel,firstProf,secondProf,unitAddress)
+
+		
+		result = forms.insert_stu(stuName,stuId,SEX,major,stuType,email,stuTel,firstProf,secondProf,unitAddress)
+		if result == True:
+			return jsonify({"msg":"已添加成功"})
+		else:
+			return jsonify({"msg":"抱歉，字段输入错误，请稍后再试"})
+		
+
 	return render_template("/su/stu_add.html",username=username)
+
+@app.route("/su/stu_edit",methods=['GET','POST'])
+def edit_stu():
+	return render_template("/su/stu_edit.html")
 
 @app.route('/su/del',methods=['GET','POST'])
 def do_su_delete():
@@ -1620,6 +1658,13 @@ def def_tec():
 		return jsonify({"msg":"已成功删除"})
 	else:
 		return jsonify({"msg":"抱歉，请稍后再试"})
+
+
+@app.route("/su/tec_edit",methods=['GET','POST'])
+def edit_tec():
+	return render_template("/su/tec_edit.html")
+
+
 
 
 

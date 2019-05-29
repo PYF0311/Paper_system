@@ -890,6 +890,16 @@ def show_stuinfo_from_db():
     finally:
         db.close() 
 
+def show_stuinfo_from_db_by_userid(userId):
+    db = connect_db()
+    try :
+        with db.cursor() as cursor:
+            sql = "SELECT * FROM stu_info WHERE stuId= %s"
+            cursor.execute(sql,(userId,))
+            result= cursor.fetchall()
+            return (result)           
+    finally:
+        db.close() 
 def show_tecinfo_from_db():
     db = connect_db()
     try :
@@ -932,6 +942,21 @@ def insert_tec(tecname,tecid,sex,department,tectype):
             sql = "INSERT INTO `tec_info` VALUES (%s,%s,%s,%s,%s,%s)"
             try:
                 cursor.execute(sql,(tecname,tecid,sex,department,tectype,'123456'))
+                db.commit()
+                result = True
+            except (pymysql.err.ProgrammingError):
+                result = pymysql.err.ProgrammingError
+            return result
+    finally:
+        db.close()
+
+def insert_stu(stuName,stuId,SEX,major,stuType,email,stuTel,firstProf,secondProf,unitAddress):
+    db = connect_db()
+    try :
+        with db.cursor() as cursor:
+            sql = "INSERT INTO `stu_info` VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            try:
+                cursor.execute(sql,(stuName,'',stuId,'','123456',SEX,major,stuType,email,stuTel,firstProf,secondProf,unitAddress))
                 db.commit()
                 result = True
             except (pymysql.err.ProgrammingError):

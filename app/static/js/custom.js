@@ -699,11 +699,13 @@ $(function () {
 		}
 	}else alert('请选择数据');								//alert to 请选择数据
 	});
+	
 	jQuery('.stu_editbutton').click(function(){
 		post_data=table_data.getData();
+		console.log(post_data)
 		if(post_data.length==1){
 		 $.ajax({
-	   			   url: "", //进入学生编辑链接
+	   			   url: "/su/stu_edit", //进入学生编辑链接
 				  data:{post_data: post_data},
 				      dataType: "json",
 				      type:"POST",
@@ -760,21 +762,15 @@ $(function () {
 	    $("#stu_add_form button").click(function(){ 
 			post_data = $("#stu_add_form").serialize();
 	       $.ajax({
-	         url:" ",//点击添加学生处理链接
+	         url:"",//点击添加学生处理链接
 	         data:post_data, 
 	         dataType: "json",
 	         type:"POST",
 	         success:function(data){
-		         msg = data.result
-		         if(msg == true){
-		           alert("添加成功");
-		           window.location.reload()
-		         }else{
-		           alert("添加失败"); 
-		         }
-	       },
+		         alert(data.msg)
+		         window.location.reload()
+	      	 },
 	       error:function(){
-	         console.log("请求出错！");
 			 window.open("/404","_self");
 	       }
 	       }); 
@@ -803,6 +799,7 @@ $(function () {
 $(function () {
 	jQuery('#tec_edit_form button').click(function(){
 			post_data = $("#tec_edit_form").serialize();
+			
 			if(table_data.getData().length==1){
 		     $.ajax({
 		               url: " ", //提交已修改的信息
@@ -824,9 +821,10 @@ $(function () {
 $(function () {
 	jQuery('.tec_editbutton').click(function(){
 		post_data=table_data.getData();
+		console.log(post_data);
 		if(post_data.length==1){
 			 $.ajax({
-		   			   url: "/tec/info", //进入教师编辑链接
+		   			   url: "/su/tec_edit", //进入教师编辑链接
 					   data:{post_data: post_data},
 					      dataType: "json",
 					      type:"POST",
@@ -841,6 +839,7 @@ $(function () {
 		}); 
 jQuery('.tec_deletebutton').click(function(){
 		post_data=table_data.getData();
+		console.log(post_data)
 		if(post_data.length){
 			var con= confirm('确定删除吗?');
 			if(con){
