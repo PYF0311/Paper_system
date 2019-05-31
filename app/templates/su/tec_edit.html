@@ -34,8 +34,7 @@
             <div class="userinfodrop">
             	
 				<div class="userdata">
-                    <h4>{{username}}</h4>
-                    <span class="email">{{userid}}</span>
+                    <h4>{{username}}</h4> 
                     <ul> 
                         <li><a href="/su/editpassword">修改密码</a></li>
                         <li><a href="/su/logout">退出</a></li>
@@ -57,20 +56,20 @@
                     <form class="stdform"   id="tec_edit_form"  method="POST">
                         <p>
                         	<label>姓名</label>
-                            <span class="field"><input type="text" name="tecName" class="mediuminput" placeholder = {{resultset[0]['tecName']}}  /></span>   
+                            <span class="field"><input type="text" name="tecName" class="mediuminput"   /></span>   
                         </p>
                         <p>
                             <label>教工号</label>
-                            <span class="field"><input type="text" name="tecId" class="mediuminput" placeholder = {{resultset[0]['tecId']}} /></span>   
+                            <span class="field"><input type="text" name="tecId" class="mediuminput"   /></span>   
                         </p>
 						<p>
 						    <label>密码</label>
-						    <span class="field"><input type="text" name="password" class="mediuminput" placeholder = {{resultset[0]['password']}} /></span>   
+						    <span class="field"><input type="text" name="password" class="mediuminput"   /></span>   
 						</p>
                         <p>
                         	<label>性别</label>
                             <span class="formwrapper" >
-								<input type="hidden" id="SEX_hid" value={{resultset[0]['SEX']}} />
+								<input type="hidden" id="SEX_hid"   />
                             	<input type="radio" checked="checked" name="SEX" value="男"/>男 &nbsp; &nbsp;
                             	<input type="radio" name="SEX" value="女"/>女 &nbsp; &nbsp;
                             </span>
@@ -78,7 +77,7 @@
                         <p>
                         	<label>教研室</label>
                             <span class="formwrapper" >
-								<input type="hidden" id="department_hid" value={{resultset[0]['department']}} />
+								<input type="hidden" id="department_hid"  />
                             	<input type="radio" checked="checked" name="department" value="食工系"/>食工系 &nbsp; &nbsp;
                             	<input type="radio" name="department"  value="生物工程教研室"/>生物工程教研室 &nbsp; &nbsp;
                             	<input type="radio" name="department" value="环境工程教研室"/>环境工程教研室 &nbsp; &nbsp;
@@ -88,7 +87,7 @@
                          <p>
                         	<label>导师类型</label>
                             <span class="formwrapper" >
-								<input type="hidden" id="tecType_hid" value={{resultset[0]['tecType']}} />
+								<input type="hidden" id="tecType_hid"  />
                             	<input type="radio" checked="checked" name="tecType" value="硕士导师"/>硕士导师 &nbsp; &nbsp;
                             	<input type="radio" name="tecType"  value="博士导师"/>博士导师 &nbsp; &nbsp;
                            
@@ -108,14 +107,5 @@
 
 </div><!--bodywrapper-->
 	</body>
-<script type="text/javascript">
-	jQuery(document).ready(function(){
-	var SEX_hid=$("#SEX_hid").val().replace("/","");  
-	$(":radio[name='SEX'][value='" + SEX_hid + "']").prop("checked", "checked"); 
-	var department_hid=$("#department_hid").val().replace("/","");  
-	$(":radio[name='department'][value='" + department_hid + "']").prop("checked", "checked"); 
-	var tecType_hid=$("#tecType_hid").val().replace("/","");  
-	$(":radio[name='tecType'][value='" + tecType_hid + "']").prop("checked", "checked"); 
-  });
-</script>
+ 
 </html>

@@ -1484,6 +1484,86 @@ def verify_password_tec():
 	
 	return jsonify({'result':result})
 
+#--------------test--------------
+@app.route("/stu/edit_pro_sub",methods=['GET','POST'])
+def edit_pro_sub_stu():
+	if 'username' not in session :
+		return redirect(url_for('login'))
+	else:
+		username = session['username'] 
+
+	edit_pro_stu = request.form.to_dict()
+	print(edit_pro_stu)
+
+@app.route("/tec/edit_pro_sub",methods=['GET','POST'])
+def edit_pro_sub_tec():
+	if 'username' not in session :
+		return redirect(url_for('login'))
+	else:
+		username = session['username'] 
+
+	edit_pro_tec = request.form.to_dict()
+	print(edit_pro_tec) 
+
+@app.route("/su/pass_edit",methods=['GET','POST'])
+def verify_password_su():
+	if 'username' not in session :
+		return redirect(url_for('login'))
+	else:
+		username = session['username'] 
+
+	edit_pwd = request.form.to_dict()
+	print(edit_pwd) 
+	
+@app.route("/su/tec_edit",methods=['GET','POST'])
+def edit_tec():
+	if 'username' in session:
+		username = session['username']
+	else:
+		return redirect(url_for('show_login'))
+	index_tec = request.form.to_dict()   
+	print(index_tec)
+	return render_template("/su/tec_edit.html")
+	
+@app.route("/su/tec_edit_sub",methods=['GET','POST'])
+def edit_tec_sub():
+	if 'username' in session:
+		username = session['username']
+	else:
+		return redirect(url_for('show_login'))
+	tec_edit_info = request.form.to_dict()   
+	print(tec_edit_info)
+	
+	
+@app.route("/su/stu_edit",methods=['GET','POST'])
+def edit_stu():
+	if 'username' in session:
+		username = session['username']
+	else:
+		return redirect(url_for('show_login'))
+	index_stu = request.form.to_dict() 
+	print(index_stu)
+	return render_template("/su/stu_edit.html")
+	
+@app.route("/su/stu_edit_sub",methods=['GET','POST'])
+def edit_stu_sub():
+	if 'username' in session:
+		username = session['username']
+	else:
+		return redirect(url_for('show_login'))
+	stu_edit_info = request.form.to_dict() 
+	print(stu_edit_info)
+	
+@app.route("/form_edit",methods=['GET','POST'])
+def edit_form_info():
+	if 'username' in session:
+		username = session['username']
+	else:
+		return redirect(url_for('show_login'))
+	form_edit_info = request.form.to_dict() 
+	print(form_edit_info)
+	
+	
 #--------------su--------------
 @app.route("/su/logout")
 def su_logout():
@@ -1599,9 +1679,7 @@ def show_su_student_add():
 
 	return render_template("/su/stu_add.html",username=username)
 
-@app.route("/su/stu_edit",methods=['GET','POST'])
-def edit_stu():
-	return render_template("/su/stu_edit.html")
+
 
 @app.route('/su/del',methods=['GET','POST'])
 def do_su_delete():
@@ -1660,13 +1738,7 @@ def def_tec():
 		return jsonify({"msg":"抱歉，请稍后再试"})
 
 
-@app.route("/su/tec_edit",methods=['GET','POST'])
-def edit_tec():
-	return render_template("/su/tec_edit.html")
-
-
-
-
+ 
 
 @app.route('/su/aca_info',methods=['GET','POST'])
 def show_aca_info_su():
@@ -1831,3 +1903,7 @@ def allowed_file(filename):
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000,debug=True)
 
+
+
+
+	

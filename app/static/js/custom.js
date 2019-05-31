@@ -143,10 +143,10 @@ $(function () {
 	    $("#editprofile_tec button").click(function(){
 			post_data = $('#editprofile_tec').serialize();
 	       $.ajax({
-	         url:"",
+	         url:"/tec/edit_pro_sub",
 	         type:"POST",
 	         dataType: "json",
-	         data:post_data,  
+	         data:{post_data: post_data},
 	         success:function(data){
 		         alert(data.msg);
 				 location.reload();
@@ -162,9 +162,9 @@ $(function () {
 	    $("#editprofile_stu button").click(function(){
 			post_data = $('#editprofile_stu').serialize();
 	       $.ajax({
-	         url:"",
+	         url:"/stu/edit_pro_sub",
 	         type:"POST",
-	         data:post_data, 
+	         data:{post_data: post_data},
 	         success:function(data){
 		         alert(data.msg);
 		         location.reload();
@@ -229,15 +229,14 @@ $(function () {
 //form_edit 
 $(function () {
 	jQuery('form[name="form_edit"] button').click(function(){ 
-		        post_data = $(this).parents('form').serialize();
-		    	var tag=$(this).parents('form').children("input[type='hidden']").val(); 
+		        post_data = $(this).parents('form').serialize(); 
 		    	var gnl=confirm("确定要保存吗?");
 					if (gnl==true){  
 						$.ajax({
 		                type: "POST", 
 		                dataType: "json", 
-		                url: "" , 
-		                data: post_data,
+		                url: "/form_edit" , 
+		                data:{post_data: post_data}, 
 		                success: function (data) {
 		                    msg = data.result
 		                    type = data.pageType 
@@ -705,17 +704,17 @@ $(function () {
 		console.log(post_data)
 		if(post_data.length==1){
 		 $.ajax({
-	   			   url: "/su/stu_edit", //进入学生编辑链接
-				  data:{post_data: post_data},
-				      dataType: "json",
-				      type:"POST",
-				      success: function(){
-				        window.open("/su/stu_edit","_self");
-				      	},
-				      error:function(){
-						window.open("/404","_self");
-				      }
-			})
+	   			url: "/su/stu_edit", //进入学生编辑链接
+				data:{post_data: post_data},
+				dataType: "json",
+				type:"POST",
+				success: function(){
+					window.open("/su/stu_edit","_self");
+				},
+				error:function(){
+					window.open("/404","_self");
+				}
+			    })
 		}else alert('请选择一条数据');	
 	});
 	//student批量导入
@@ -739,10 +738,9 @@ $(function () {
 // /su/stu_edit.html
 $(function () {
 	jQuery('#stu_edit_form button').click(function(){
-			post_data=$("#stu_edit_form").serialize();
-			if(table_data.getData().length==1){
+			post_data=$("#stu_edit_form").serialize(); 
 		     $.ajax({
-		               url: "", //提交已修改好的信息
+		               url: "/su/stu_edit_sub", //提交已修改好的信息
 		               data:post_data,
 		                  dataType: "json",
 		                  type:"POST",
@@ -753,8 +751,7 @@ $(function () {
 		                  error:function(){
 								window.open("/404","_self")
 		                  }
-		        })
-		}else alert('请选择一条数据');   
+		        })  
 		});
 });
 // /su/stu_add.html
@@ -798,11 +795,9 @@ $(function () {
 // /su/tec_edit.html
 $(function () {
 	jQuery('#tec_edit_form button').click(function(){
-			post_data = $("#tec_edit_form").serialize();
-			
-			if(table_data.getData().length==1){
-		     $.ajax({
-		               url: " ", //提交已修改的信息
+			post_data = $("#tec_edit_form").serialize();  
+		    $.ajax({
+		               url: "/su/tec_edit_sub", //提交已修改的信息
 		               data:post_data,
 		               dataType: "json",
 		               type:"POST",
@@ -813,8 +808,7 @@ $(function () {
 		                  error:function(){
 								window.open("/404","_self")
 		                  }
-		        })
-		}else alert('请选择一条数据');   
+		        })  
 		});
 });
 // /su/teachers.html
@@ -825,11 +819,11 @@ $(function () {
 		if(post_data.length==1){
 			 $.ajax({
 		   			   url: "/su/tec_edit", //进入教师编辑链接
-					   data:{post_data: post_data},
+					   data:{post_data:post_data},
 					      dataType: "json",
 					      type:"POST",
-					      success: function(data){ 
-	                        window.open("/su/tec_edit","_self") 
+					      success: function(){  
+	                        // window.open("/su/tec_edit","_self") 
 	                      },
 					      error:function(){
 							window.open("/404","_self");
@@ -879,31 +873,29 @@ jQuery('.tec_deletebutton').click(function(){
 	　　			 }) 
 	});
 });
-// /su/editpassword
+// /su/editpassword 
 $(function () {
-	    //表单提交前校验
-	    $("#su_editpasswd button").click(function(){
-			post_data = $("#su_editpasswd").serialize();
-	      if(oldpasswd && repeatPasswd && newPasswd){
-	       $.ajax({
-	         url:"",//管理员修改密码
-	         data:post_data, 
-	         dataType: "json",
-	         type:"POST",
-	         success:function(data){
-		         msg = data.result
-		         if(msg == true){
-		           alert("修改成功");
-		           window.open("/su/login","_self")
-		         }else{
-		           alert("修改失败"); 
-		         }
-	       },
-	       error:function(){
-	         console.log("请求出错！");
-	       }
-	       });
-	      }   
-	});
+    $("#su_editpasswd button").click(function(){
+	  post_data = $('#su_editpasswd').serialize(); 
+       $.ajax({
+         url:"/su/pass_edit",
+         data:post_data,  
+         dataType: "json",
+         type:"POST",
+         success:function(data){
+	         msg = data.result
+	         if(msg == true){
+	           alert("修改成功");
+	           window.open("/su/login","_self")
+	         }else{
+	           alert("修改失败");
+
+	         }
+       },
+       error:function(){
+         console.log("请求出错！");
+       }
+       }); 
+});
 });
  
